@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import Footer from './components/Fooder';
-import SideNavigation from './components/SideNavigation';
+import Footer from './components/Global/Fooder';
+import SideNavigation from './components/Global/SideNavigation';
 
 export default {
     name: 'app',

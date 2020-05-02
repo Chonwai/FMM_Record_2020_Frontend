@@ -4,9 +4,10 @@
             <div class="font-bold text-3xl">Thank You For Using!</div>
             <div class="text-lg">
                 System created by Edison Un.
-                <a class="font-bold" href="mailto:chonwaiun@gmail.com"
-                    >Contact Me (chonwaiun@gmail.com) :P</a
-                >
+                <a
+                    class="font-bold"
+                    href="mailto:chonwaiun@gmail.com"
+                >Contact Me (chonwaiun@gmail.com) :P</a>
             </div>
             <div>
                 Icons made by
@@ -17,8 +18,25 @@
                     href="http://creativecommons.org/licenses/by/3.0/"
                     title="Creative Commons BY 3.0"
                     target="_blank"
-                    >CC 3.0 BY</a
-                >
+                >CC 3.0 BY</a>
+            </div>
+            <div>
+                Photo by
+                <a
+                    href="https://burst.shopify.com/@sarahpflugphoto?utm_campaign=photo_credit&amp;utm_content=Picture+of+Teal+Brick+Texture+-+Free+Stock+Photo&amp;utm_medium=referral&amp;utm_source=credit"
+                >Sarah Pflug</a> from
+                <a
+                    href="https://burst.shopify.com/urban-life?utm_campaign=photo_credit&amp;utm_content=Picture+of+Teal+Brick+Texture+-+Free+Stock+Photo&amp;utm_medium=referral&amp;utm_source=credit"
+                >Burst</a>
+            </div>
+            <div>
+                Photo by
+                <a
+                    href="https://burst.shopify.com/@matthew_henry?utm_campaign=photo_credit&amp;utm_content=Browse+Free+HD+Images+of+Turquoise+Brick+Wall+Texture&amp;utm_medium=referral&amp;utm_source=credit"
+                >Matthew Henry</a> from
+                <a
+                    href="https://burst.shopify.com/background?utm_campaign=photo_credit&amp;utm_content=Browse+Free+HD+Images+of+Turquoise+Brick+Wall+Texture&amp;utm_medium=referral&amp;utm_source=credit"
+                >Burst</a>
             </div>
         </div>
     </main>
@@ -32,7 +50,7 @@ export default {
 
 <style lang="scss" scoped>
 #about-component {
-    background-image: url('../../assets/images/pexels-photo-1037995.jpeg');
+    background-image: url('../../assets/images/teal-brick-texture.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
