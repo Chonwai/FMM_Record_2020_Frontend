@@ -1,25 +1,22 @@
 <template>
-    <div id="app">
-        <img src="./assets/logo.png" />
-        <div>
-            <p>
-                If Element is successfully added to this project, you'll see an
-                <code v-text="'<el-button>'"></code>
-                below
-            </p>
-            <el-button>el-button</el-button>
+    <div id="app" class="min-h-screen">
+        <div class="main-window flex items-center">
+            <SideNavigation />
+            <router-view class="w-full" />
         </div>
-        <HelloWorld msg="Welcome to Your Vue.js App" />
+        <Footer />
     </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import Footer from './components/Fooder';
+import SideNavigation from './components/SideNavigation';
 
 export default {
     name: 'app',
     components: {
-        HelloWorld,
+        Footer,
+        SideNavigation
     },
 };
 </script>
@@ -31,6 +28,5 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
 }
 </style>
