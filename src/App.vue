@@ -16,7 +16,7 @@ export default {
     name: 'app',
     components: {
         Footer,
-        SideNavigation
+        SideNavigation,
     },
 };
 </script>
