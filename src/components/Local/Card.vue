@@ -6,30 +6,22 @@
                     class="h-auto p-2 flex-none bg-cover text-center overflow-hidden"
                     src="@/assets/images/document.svg"
                     alt="Image"
-                    srcset=""
+                    srcset
                 />
             </div>
             <div class="flex flex-col bg-white w-2/3">
                 <div class="text-gray-900 font-bold text-xl mb-2 text-left">
-                    Record #1
+                    Record #{{ record.id }}
                 </div>
+                <p class="text-gray-700 text-base text-left mb-1">FMM{{ record.id }}</p>
+                <p class="text-gray-700 text-base text-left mb-1">領取人：{{ record.taken_by }}</p>
+                <p class="text-gray-700 text-base text-left mb-1">日期：{{ record.taken_at }}</p>
                 <p class="text-gray-700 text-base text-left mb-1">
-                    FMM
+                    職員/學生證號碼：{{ record.staff_number }}
                 </p>
+                <p class="text-gray-700 text-base text-left mb-1">電話：{{ record.contact }}</p>
                 <p class="text-gray-700 text-base text-left mb-1">
-                    領取人：
-                </p>
-                <p class="text-gray-700 text-base text-left mb-1">
-                    日期：
-                </p>
-                <p class="text-gray-700 text-base text-left mb-1">
-                    職員/學生證號碼：
-                </p>
-                <p class="text-gray-700 text-base text-left mb-1">
-                    電話：
-                </p>
-                <p class="text-gray-700 text-base text-left mb-1">
-                    是否已還：否
+                    是否已還：{{ record.is_return }}
                 </p>
                 <div class="flex justify-end">
                     <button class="w-1/3 left-0 border rounded p-1">更新</button>
@@ -42,6 +34,14 @@
 <script>
 export default {
     name: 'Card',
+    props: {
+        record: {
+            type: Object,
+            default: () => {
+                return {};
+            },
+        },
+    },
 };
 </script>
 
