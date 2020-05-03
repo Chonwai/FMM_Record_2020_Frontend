@@ -1,5 +1,5 @@
 <template>
-    <aside id="side-navigation-component" class="h-screen w-300 bg-teal-800"></aside>
+    <aside id="side-navigation-component" class="h-screen w-64 bg-teal-800 fixed"></aside>
 </template>
 
 <script>

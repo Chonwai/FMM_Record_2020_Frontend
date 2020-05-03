@@ -1,10 +1,10 @@
 <template>
     <div id="app" class="min-h-screen">
-        <div class="main-window flex items-center">
-            <SideNavigation />
+        <SideNavigation />
+        <div class="main-window ml-64">
             <router-view class="w-full" />
+            <Footer />
         </div>
-        <Footer />
     </div>
 </template>
 
