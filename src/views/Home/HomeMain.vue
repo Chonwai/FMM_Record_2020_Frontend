@@ -4,7 +4,7 @@
             class="cards w-1/3 p-8"
             v-for="(item, index) in functionList"
             :key="index"
-            :to="{ name: item.project_name}"
+            :to="{ name: item.project_name }"
         >
             <div class="card-icon mb-4">
                 <img :src="'@/assets/images/' + item.icon_name" alt="icon" />
@@ -22,11 +22,11 @@ export default {
     name: 'HomeMain',
     data() {
         return {
-            functionList: []
-        }
+            functionList: [],
+        };
     },
     created() {
-        this.functionList = Utils.functionList();  
+        this.functionList = Utils.functionList();
     },
 };
 </script>

@@ -10,6 +10,7 @@
     "prettier": "prettier --write \"src/**/*.js\" \"src/**/*.vue\""
   },
   "dependencies": {
+    "animate.css": "^3.7.2",
     "bootstrap-vue": "^2.1.0",
     "core-js": "^3.6.4",
     "dotenv": "^8.2.0",

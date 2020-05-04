@@ -13,11 +13,15 @@
                 />
             </div>
             <div class="flex flex-col bg-white w-2/3">
-                <div class="text-gray-900 font-bold text-xl mb-2 text-left">Record #{{ record.id }}</div>
+                <div class="text-gray-900 font-bold text-xl mb-2 text-left">
+                    Record #{{ record.id }}
+                </div>
                 <p class="text-gray-700 text-base text-left mb-1">FMM{{ record.id }}</p>
                 <p class="text-gray-700 text-base text-left mb-1">領取人：{{ record.taken_by }}</p>
                 <p class="text-gray-700 text-base text-left mb-1">日期：{{ record.taken_at }}</p>
-                <p class="text-gray-700 text-base text-left mb-1">職員/學生證號碼：{{ record.staff_number }}</p>
+                <p class="text-gray-700 text-base text-left mb-1">
+                    職員/學生證號碼：{{ record.staff_number }}
+                </p>
                 <p class="text-gray-700 text-base text-left mb-1">電話：{{ record.contact }}</p>
                 <p class="text-gray-700 text-base text-left mb-1">是否已還：已還</p>
                 <div class="flex justify-end">
@@ -38,11 +42,15 @@
                 />
             </div>
             <div class="flex flex-col bg-white w-2/3">
-                <div class="text-gray-900 font-bold text-xl mb-2 text-left">Record #{{ record.id }}</div>
+                <div class="text-gray-900 font-bold text-xl mb-2 text-left">
+                    Record #{{ record.id }}
+                </div>
                 <p class="text-gray-700 text-base text-left mb-1">FMM{{ record.id }}</p>
                 <p class="text-gray-700 text-base text-left mb-1">領取人：{{ record.taken_by }}</p>
                 <p class="text-gray-700 text-base text-left mb-1">日期：{{ record.taken_at }}</p>
-                <p class="text-gray-700 text-base text-left mb-1">職員/學生證號碼：{{ record.staff_number }}</p>
+                <p class="text-gray-700 text-base text-left mb-1">
+                    職員/學生證號碼：{{ record.staff_number }}
+                </p>
                 <p class="text-gray-700 text-base text-left mb-1">電話：{{ record.contact }}</p>
                 <p class="text-gray-700 text-base text-left mb-1">是否已還：未還</p>
                 <div class="flex justify-end">

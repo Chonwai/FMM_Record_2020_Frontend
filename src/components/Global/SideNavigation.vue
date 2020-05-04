@@ -7,7 +7,7 @@
             <router-link
                 v-for="(item, index) in functionList"
                 :key="index"
-                :to="{ name: item.project_name}"
+                :to="{ name: item.project_name }"
                 class="nav-item w-full h-8 mb-2 flex flex-row items-center"
             >
                 <img class="w-1/4" :src.sync="'@/assets/images/' + item.icon_name" />
@@ -19,13 +19,13 @@
 
 <script>
 // import Utils from '../../utils/Utils';
-import FunctionList from '@/data/FunctionList.json'
+import FunctionList from '@/data/FunctionList.json';
 export default {
     name: 'SideNavigation',
     data() {
         return {
             functionList: FunctionList.function_list,
-        }
+        };
     },
 };
 </script>

@@ -1,4 +1,4 @@
-import FunctionList from '../data/FunctionList.json'
+import FunctionList from '../data/FunctionList.json';
 
 class Utils {
     static functionList() {
