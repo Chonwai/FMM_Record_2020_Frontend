@@ -1,0 +1,53 @@
+{
+  "function_list": [{
+      "project_name": "Home",
+      "project_title": "首頁",
+      "icon_name": "house.svg"
+    },
+    {
+      "project_name": "newRecord",
+      "project_title": "新增表單",
+      "icon_name": "newspaper.svg"
+    },
+    {
+      "project_name": "printForm",
+      "project_title": "表單列印",
+      "icon_name": "typewriter.svg"
+    },
+    {
+      "project_name": "Record",
+      "project_title": "查找及更新記錄",
+      "icon_name": "search.svg"
+    },
+    {
+      "project_name": "newAssets",
+      "project_title": "新增設備資料",
+      "icon_name": "trolley.svg"
+    },
+    {
+      "project_name": "editAssets",
+      "project_title": "查找及更新設備資料",
+      "icon_name": "school-material.svg"
+    },
+    {
+      "project_name": "addNewUser",
+      "project_title": "新增用戶",
+      "icon_name": "add-user.svg"
+    },
+    {
+      "project_name": "internalUser",
+      "project_title": "內部用戶",
+      "icon_name": "relations.svg"
+    },
+    {
+      "project_name": "externalUser",
+      "project_title": "外部用戶",
+      "icon_name": "relationship.svg"
+    },
+    {
+      "project_name": "About",
+      "project_title": "關於",
+      "icon_name": "chat.svg"
+    }
+  ]
+}
