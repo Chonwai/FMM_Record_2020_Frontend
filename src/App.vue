@@ -1,7 +1,7 @@
 <template>
     <div id="app" class="min-h-screen">
         <SideNavigation />
-        <div class="main-window ml-64">
+        <div class="main-window ml-72">
             <router-view class="w-full" />
             <Footer />
         </div>
@@ -21,12 +21,4 @@ export default {
 };
 </script>
 
-<style>
-#app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-}
-</style>
+<style src="@/assets/css/main.css"></style>

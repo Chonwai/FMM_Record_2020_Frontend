@@ -1,17 +1,20 @@
 <template>
-    <aside id="side-navigation-component" class="h-screen w-64 bg-teal-800 fixed p-8">
+    <aside id="side-navigation-component" class="h-screen w-72 bg-teal-800 fixed p-8">
         <div class="p-8 mb-4">
             <img src="@/assets/images/strategy.svg" alt="icon" srcset />
         </div>
-        <div class="flex flex-col justify-center items-start w-full">
+        <div class="flex flex-col justify-center items-start w-full overflow-scroll">
             <router-link
                 v-for="(item, index) in functionList"
                 :key="index"
                 :to="{ name: item.project_name }"
-                class="nav-item w-full h-8 mb-2 flex flex-row items-center"
+                class="nav-item w-full h-10 mb-2 flex flex-row items-center overflow-scroll"
             >
-                <img class="w-1/4" :src.sync="'@/assets/images/' + item.icon_name" />
-                <p class="w-3/4 flex justify-start text-white">{{ item.project_title }}</p>
+                <img
+                    class="w-1/5 h-auto bg-white rounded-lg p-2"
+                    :src="require('@/assets/images/' + item.icon_name)"
+                />
+                <p class="w-3/4 flex justify-start text-white pl-2">{{ item.project_title }}</p>
             </router-link>
         </div>
     </aside>
@@ -35,6 +38,12 @@ export default {
     display: none;
 }
 
+.nav-item:hover {
+    transform: translateX(12px);
+    transition: 0.3s;
+}
+
 .nav-item {
+    transition: 0.3s;
 }
 </style>

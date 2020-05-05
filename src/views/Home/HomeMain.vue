@@ -1,13 +1,13 @@
 <template>
     <div id="home-container" class="flex flex-wrap p-12">
         <router-link
-            class="cards w-1/3 p-8"
+            class="cards w-1/4 p-8"
             v-for="(item, index) in functionList"
             :key="index"
             :to="{ name: item.project_name }"
         >
             <div class="card-icon mb-4">
-                <img :src="'@/assets/images/' + item.icon_name" alt="icon" />
+                <img :src="require('@/assets/images/' + item.icon_name)" alt="icon" />
             </div>
             <div class="card-title">
                 <p class="text-2xl font-bold">{{ item.project_title }}</p>

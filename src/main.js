@@ -8,6 +8,7 @@ import router from './router';
 import store from './store';
 import './plugins/element.js';
 import './assets/tailwind.css';
+import Snotify, { SnotifyPosition } from 'vue-snotify';
 
 Vue.config.productionTip = false;
 
@@ -16,3 +17,11 @@ new Vue({
     store,
     render: h => h(App),
 }).$mount('#app');
+
+const options = {
+    toast: {
+        position: SnotifyPosition.rightTop,
+    },
+};
+
+Vue.use(Snotify, options);

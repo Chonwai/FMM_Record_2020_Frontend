@@ -23,6 +23,11 @@ const routes = [
         name: 'Record',
         component: () => import(/* webpackChunkName: "about" */ '../views/Record/RecordMain'),
     },
+    {
+        path: '/print',
+        name: 'Print',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Print/PrintMain'),
+    },
 ];
 
 const router = new VueRouter({
