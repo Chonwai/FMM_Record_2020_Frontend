@@ -32,6 +32,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#home-container {
+    background-image: url('../../assets/images/pexels-photo-745364.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
 .cards {
     transition: 0.3s;
     cursor: pointer;
