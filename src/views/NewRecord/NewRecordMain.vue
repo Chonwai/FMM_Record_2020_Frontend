@@ -118,7 +118,9 @@
                 ></el-switch>
             </div>
             <div class="mb-4 px-4 w-full flex justify-end">
-                <button class="input-box py-2 px-4 border rounded-lg" @click="onSubmit">新增表單</button>
+                <button class="input-box py-2 px-4 border rounded-lg" @click="onSubmit">
+                    新增表單
+                </button>
             </div>
         </main>
     </div>
