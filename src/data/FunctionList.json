@@ -16,7 +16,7 @@
     },
     {
       "project_name": "RecordsList",
-      "project_title": "查找及更新記錄",
+      "project_title": "查詢或更新記錄",
       "icon_name": "search.svg"
     },
     {
@@ -26,7 +26,7 @@
     },
     {
       "project_name": "editAssets",
-      "project_title": "查找及更新設備資料",
+      "project_title": "查詢或更新設備資料",
       "icon_name": "school-material.svg"
     },
     {

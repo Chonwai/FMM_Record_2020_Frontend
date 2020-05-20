@@ -1,7 +1,7 @@
 <template>
     <div id="app" class="min-h-screen">
         <SideNavigation />
-        <div class="main-window ml-72">
+        <div id="main-window" class="ml-72">
             <router-view class="w-full" />
             <Footer />
         </div>

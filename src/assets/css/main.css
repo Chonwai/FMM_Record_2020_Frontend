@@ -9,7 +9,15 @@
 @media print {
     #side-navigation-component {
         display: none;
-        width: 0px;
+    }
+
+    #main-window {
+        width: 100%;
+        margin: 0px;
+    }
+
+    .edit-panel-container {
+        display: none;
     }
 
     .title[data-v-6b49ebc7] {

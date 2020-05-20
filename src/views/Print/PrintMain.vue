@@ -1,27 +1,5 @@
 <template>
     <div class="print-form-container">
-        <div class="edit-panel-container">
-            <!-- <div class="close-btn-container">
-      <div class="close-btn" @click="closePanel()">&times;</div>
-    </div> -->
-            <div class="edit-panel">
-                <h1>請輸入表單編號</h1>
-                <div class="edit-panel-row">
-                    <div class="row-item">
-                        <p class="row-title">表單編號</p>
-                        <input
-                            class="form-input"
-                            placeholder="表單編號"
-                            type="number"
-                            v-model="this.printFromID"
-                        />
-                    </div>
-                </div>
-                <div class="form-input submit-btn update-btn" @click="searchPrintForm()">
-                    <p>確定</p>
-                </div>
-            </div>
-        </div>
         <div class="title">
             <h1>表單列印</h1>
         </div>
@@ -41,54 +19,108 @@
             <div class="form-info-table-container" v-if="printFormRecord[0]">
                 <div class="form-item"></div>
                 <div class="form-item"></div>
-                <div class="form-item">表單編號：<span class="eng">Form number:</span></div>
+                <div class="form-item">
+                    表單編號：
+                    <span class="eng">Form number:</span>
+                </div>
                 <div class="form-item data">FMM{{ printFormRecord[0].FormID }}</div>
-                <div class="form-item">領取人：<span class="eng">Name:</span></div>
+                <div class="form-item">
+                    領取人：
+                    <span class="eng">Name:</span>
+                </div>
                 <div class="form-item data">{{ printFormRecord[0].name }}</div>
-                <div class="form-item">日期：<span class="eng">Date:</span></div>
+                <div class="form-item">
+                    日期：
+                    <span class="eng">Date:</span>
+                </div>
                 <div class="form-item data">{{ printFormRecord[0].date }}</div>
-                <div class="form-item">職員/學生證號碼：<span class="eng">Staff Number:</span></div>
+                <div class="form-item">
+                    職員/學生證號碼：
+                    <span class="eng">Staff Number:</span>
+                </div>
                 <div class="form-item data">{{ printFormRecord[0].staffNumber }}</div>
-                <div class="form-item">部門：<span class="eng">Department:</span></div>
+                <div class="form-item">
+                    部門：
+                    <span class="eng">Department:</span>
+                </div>
                 <div class="form-item data">{{ printFormRecord[0].department }}</div>
-                <div class="form-item">預期歸還：<span class="eng">Date of Return:</span></div>
+                <div class="form-item">
+                    預期歸還：
+                    <span class="eng">Date of Return:</span>
+                </div>
                 <div class="form-item data">{{ printFormRecord[0].dateOfReturn }}</div>
-                <div class="form-item">電話：<span class="eng">Contact:</span></div>
+                <div class="form-item">
+                    電話：
+                    <span class="eng">Contact:</span>
+                </div>
                 <div class="form-item data">{{ printFormRecord[0].userContact }}</div>
             </div>
             <div class="form-info-table-container" v-else>
                 <div class="form-item"></div>
                 <div class="form-item"></div>
-                <div class="form-item">表單編號：<span class="eng">Form number:</span></div>
+                <div class="form-item">
+                    表單編號：
+                    <span class="eng">Form number:</span>
+                </div>
                 <div class="form-item data"></div>
-                <div class="form-item">領取人：<span class="eng">Name:</span></div>
+                <div class="form-item">
+                    領取人：
+                    <span class="eng">Name:</span>
+                </div>
                 <div class="form-item data"></div>
-                <div class="form-item">日期：<span class="eng">Date:</span></div>
+                <div class="form-item">
+                    日期：
+                    <span class="eng">Date:</span>
+                </div>
                 <div class="form-item data"></div>
-                <div class="form-item">職員/學生證號碼：<span class="eng">Staff Number:</span></div>
+                <div class="form-item">
+                    職員/學生證號碼：
+                    <span class="eng">Staff Number:</span>
+                </div>
                 <div class="form-item data"></div>
-                <div class="form-item">部門：<span class="eng">Department:</span></div>
+                <div class="form-item">
+                    部門：
+                    <span class="eng">Department:</span>
+                </div>
                 <div class="form-item data"></div>
-                <div class="form-item">預期歸還：<span class="eng">Date of Return:</span></div>
+                <div class="form-item">
+                    預期歸還：
+                    <span class="eng">Date of Return:</span>
+                </div>
                 <div class="form-item data"></div>
-                <div class="form-item">電話：<span class="eng">Contact:</span></div>
+                <div class="form-item">
+                    電話：
+                    <span class="eng">Contact:</span>
+                </div>
                 <div class="form-item data"></div>
             </div>
             <div class="form-items-table-container" v-if="printFormItems[0]">
-                <div class="form-item">項目<span class="eng">Item</span></div>
                 <div class="form-item">
-                    器材名稱及型號<span class="eng">Equipment Name and Model</span>
+                    項目
+                    <span class="eng">Item</span>
                 </div>
-                <div class="form-item">器材財產編號<span class="eng">Asset No.</span></div>
                 <div class="form-item">
-                    用途及使用地點<span class="eng">Useage and Use Location</span>
+                    器材名稱及型號
+                    <span class="eng">Equipment Name and Model</span>
                 </div>
-                <div class="form-item">還件人<span class="eng">Name</span></div>
-                <div class="form-item">還件日期<span class="eng">Return Date</span></div>
+                <div class="form-item">
+                    器材財產編號
+                    <span class="eng">Asset No.</span>
+                </div>
+                <div class="form-item">
+                    用途及使用地點
+                    <span class="eng">Useage and Use Location</span>
+                </div>
+                <div class="form-item">
+                    還件人
+                    <span class="eng">Name</span>
+                </div>
+                <div class="form-item">
+                    還件日期
+                    <span class="eng">Return Date</span>
+                </div>
                 <div class="form-item" v-for="item in 60" :key="item.key">
-                    <div v-if="item % 6 == 1">
-                        {{ Math.ceil(item / 6) }}
-                    </div>
+                    <div v-if="item % 6 == 1">{{ Math.ceil(item / 6) }}</div>
                     <div v-else-if="printFormItems[Math.ceil(item / 6) - 1] && item % 6 == 2">
                         {{ printFormItems[Math.ceil(item / 6) - 1].assetsModel }}
                     </div>
@@ -107,28 +139,46 @@
                 </div>
             </div>
             <div class="form-items-table-container" v-else>
-                <div class="form-item">項目<span class="eng">Item</span></div>
                 <div class="form-item">
-                    器材名稱及型號<span class="eng">Equipment Name and Model</span>
+                    項目
+                    <span class="eng">Item</span>
                 </div>
-                <div class="form-item">器材財產編號<span class="eng">Asset No.</span></div>
                 <div class="form-item">
-                    用途及使用地點<span class="eng">Useage and Use Location</span>
+                    器材名稱及型號
+                    <span class="eng">Equipment Name and Model</span>
                 </div>
-                <div class="form-item">還件人<span class="eng">Name</span></div>
-                <div class="form-item">還件日期<span class="eng">Return Date</span></div>
+                <div class="form-item">
+                    器材財產編號
+                    <span class="eng">Asset No.</span>
+                </div>
+                <div class="form-item">
+                    用途及使用地點
+                    <span class="eng">Useage and Use Location</span>
+                </div>
+                <div class="form-item">
+                    還件人
+                    <span class="eng">Name</span>
+                </div>
+                <div class="form-item">
+                    還件日期
+                    <span class="eng">Return Date</span>
+                </div>
                 <div class="form-item" v-for="item in 60" :key="item.key">
-                    <div v-if="item % 6 == 1">
-                        {{ Math.floor(item / 6) + 1 }}
-                    </div>
+                    <div v-if="item % 6 == 1">{{ Math.floor(item / 6) + 1 }}</div>
                 </div>
             </div>
             <div class="form-remark-container" v-if="printFormRecord[0]">
-                <div class="form-item">備註：<span class="eng">Remark:</span></div>
+                <div class="form-item">
+                    備註：
+                    <span class="eng">Remark:</span>
+                </div>
                 <div class="form-item data">{{ printFormRecord[0].remark }}</div>
             </div>
             <div class="form-remark-container" v-else>
-                <div class="form-item">備註：<span class="eng">Remark:</span></div>
+                <div class="form-item">
+                    備註：
+                    <span class="eng">Remark:</span>
+                </div>
                 <div class="form-item data"></div>
             </div>
             <div class="form-title-container">
@@ -136,23 +186,47 @@
                 <p class="form-title">For FMM staff use only</p>
             </div>
             <div class="form-staff-only-container" v-if="printFormRecord[0]">
-                <div class="form-item">交件人：<span class="eng">Delivery Person:</span></div>
+                <div class="form-item">
+                    交件人：
+                    <span class="eng">Delivery Person:</span>
+                </div>
                 <div class="form-item data">{{ printFormRecord[0].deliveryPerson }}</div>
-                <div class="form-item">收件人：<span class="eng">Receiver:</span></div>
+                <div class="form-item">
+                    收件人：
+                    <span class="eng">Receiver:</span>
+                </div>
                 <div class="form-item data">{{ printFormRecord[0].returnPerson }}</div>
-                <div class="form-item">日期：<span class="eng">Date:</span></div>
+                <div class="form-item">
+                    日期：
+                    <span class="eng">Date:</span>
+                </div>
                 <div class="form-item data">{{ printFormRecord[0].deliveryDate }}</div>
-                <div class="form-item">日期：<span class="eng">Date:</span></div>
+                <div class="form-item">
+                    日期：
+                    <span class="eng">Date:</span>
+                </div>
                 <div class="form-item data">{{ printFormRecord[0].returnDate }}</div>
             </div>
             <div class="form-staff-only-container" v-else>
-                <div class="form-item">交件人：<span class="eng">Delivery Person:</span></div>
+                <div class="form-item">
+                    交件人：
+                    <span class="eng">Delivery Person:</span>
+                </div>
                 <div class="form-item data"></div>
-                <div class="form-item">收件人：<span class="eng">Receiver:</span></div>
+                <div class="form-item">
+                    收件人：
+                    <span class="eng">Receiver:</span>
+                </div>
                 <div class="form-item data"></div>
-                <div class="form-item">日期：<span class="eng">Date:</span></div>
+                <div class="form-item">
+                    日期：
+                    <span class="eng">Date:</span>
+                </div>
                 <div class="form-item data"></div>
-                <div class="form-item">日期：<span class="eng">Date:</span></div>
+                <div class="form-item">
+                    日期：
+                    <span class="eng">Date:</span>
+                </div>
                 <div class="form-item data"></div>
             </div>
         </div>
@@ -200,6 +274,25 @@ export default {
                 });
         },
         inputFormID() {
+            this.$prompt('查詢「FMM1」表單只輸入「1」即可！如查詢空的表單請按。', '請輸入表單編號', {
+                confirmButtonText: '確定',
+                cancelButtonText: '取消',
+                inputPattern: /^[+]?[0-9]+/,
+                inputErrorMessage: '表單編號不正確',
+                inputType: 'number',
+            })
+                .then(({ value }) => {
+                    this.$message({
+                        type: 'success',
+                        message: '查詢表單編號: ' + value,
+                    });
+                })
+                .catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '取消查詢',
+                    });
+                });
             // swal({
             //     title: '請輸入表單編號',
             //     content: {
@@ -226,7 +319,7 @@ export default {
     },
     created() {
         this.printFromID = this.$route.params.FormID;
-        if (this.printFromID == undefined) {
+        if (this.printFromID == null) {
             this.inputFormID();
         } else {
             this.getPrintRecord();
@@ -340,13 +433,13 @@ p {
     display: grid;
     grid-template-rows: repeat(11, var(--info-row-height));
     grid-template-columns: repeat(6, auto);
-    border: 1px solid var(--black);
+    border: 1px solid black;
     margin-top: 6px;
     margin-bottom: 6px;
 }
 
 .form-items-table-container > .form-item {
-    border: 1px solid var(--black);
+    border: 1px solid black;
 }
 
 .form-remark-container {
