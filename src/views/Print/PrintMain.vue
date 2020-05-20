@@ -274,13 +274,17 @@ export default {
                 });
         },
         inputFormID() {
-            this.$prompt('查詢「FMM1」表單只輸入「1」即可！如查詢空的表單請按。', '請輸入表單編號', {
-                confirmButtonText: '確定',
-                cancelButtonText: '取消',
-                inputPattern: /^[+]?[0-9]+/,
-                inputErrorMessage: '表單編號不正確',
-                inputType: 'number',
-            })
+            this.$prompt(
+                '查詢「FMM1」表單只輸入「1」即可！如查詢空的表單請按。',
+                '請輸入表單編號',
+                {
+                    confirmButtonText: '確定',
+                    cancelButtonText: '取消',
+                    inputPattern: /^[+]?[0-9]+/,
+                    inputErrorMessage: '表單編號不正確',
+                    inputType: 'number',
+                }
+            )
                 .then(({ value }) => {
                     this.$message({
                         type: 'success',
