@@ -25,7 +25,12 @@
                 <p class="text-gray-700 text-base text-left mb-1">電話：{{ record.contact }}</p>
                 <p class="text-gray-700 text-base text-left mb-1">是否已還：已還</p>
                 <div class="flex justify-end">
-                    <button class="w-1/3 left-0 border rounded p-1">更新</button>
+                    <router-link
+                        class="w-1/3 left-0 border rounded p-1"
+                        :to="{ name: 'UpdateRecord', params: { id: record.id } }"
+                    >
+                        <button class="w-full">更新</button>
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -54,7 +59,12 @@
                 <p class="text-gray-700 text-base text-left mb-1">電話：{{ record.contact }}</p>
                 <p class="text-gray-700 text-base text-left mb-1">是否已還：未還</p>
                 <div class="flex justify-end">
-                    <button class="w-1/3 left-0 border rounded p-1">更新</button>
+                    <router-link
+                        class="w-1/3 left-0 border rounded p-1"
+                        :to="{ name: 'UpdateRecord', params: { id: record.id } }"
+                    >
+                        <button class="w-full">更新</button>
+                    </router-link>
                 </div>
             </div>
         </div>

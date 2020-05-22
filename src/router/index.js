@@ -34,11 +34,18 @@ const routes = [
         name: 'NewRecord',
         component: () => import(/* webpackChunkName: "about" */ '../views/NewRecord/NewRecordMain'),
     },
+    {
+        path: '/record/:id/update',
+        name: 'UpdateRecord',
+        component: () =>
+            import(/* webpackChunkName: "about" */ '../views/UpdateRecord/UpdateRecordMain'),
+        props: true,
+    },
 ];
 
 const router = new VueRouter({
     mode: 'history',
-    base: process.env.BASE_URL,
+    // base: process.env.BASE_URL,
     routes,
 });
 

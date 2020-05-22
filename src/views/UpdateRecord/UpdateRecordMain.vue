@@ -1,6 +1,6 @@
 <template>
-    <div id="new-record-container" class="p-12 flex flex-col justify-center items-center">
-        <h1 class="text-3xl font-bold mb-4">新增表單</h1>
+    <div id="update-record-container" class="p-12 flex flex-col justify-center items-center">
+        <h1 class="text-3xl font-bold mb-4">更新表單</h1>
         <main class="w-2/3 flex flex-wrap border p-4 rounded-lg">
             <div class="input-box w-full flex flex-row items-center px-4 mb-4 justify-end">
                 <el-switch
@@ -79,6 +79,7 @@
                 :key="index"
                 :index.sync="item"
                 @item="updateItem"
+                v-model="record.items_records[index]"
             />
             <InputX
                 class="w-full"
@@ -118,8 +119,8 @@
                 ></el-switch>
             </div>
             <div class="mb-4 px-4 w-full flex justify-end">
-                <button class="input-box py-2 px-4 border rounded-lg" @click="submit">
-                    新增表單
+                <button class="input-box py-2 px-4 border rounded-lg" @click="update">
+                    更新表單
                 </button>
             </div>
         </main>
@@ -131,9 +132,10 @@ import InputX from '../../components/Local/InputX';
 import ItemInput from '../../components/Local/ItemInput';
 import RecordAPI from '../../services/API/RecordAPI';
 export default {
-    name: 'NewRecordMain',
+    name: 'UpdateRecordMain',
     data() {
         return {
+            Record: new RecordAPI(),
             record: {
                 status: 'external',
                 taken_by: '',
@@ -160,44 +162,26 @@ export default {
                 returned_at: '',
             },
             currentItem: 1,
-            API: new RecordAPI(),
+            currentRecordID: this.$route.params.id,
         };
+    },
+    async created() {
+        await this.getRecord(this.currentRecordID);
+        console.log(this.record);
     },
     components: {
         InputX,
         ItemInput,
     },
     methods: {
-        init() {
-            this.record = {
-                status: 'external',
-                taken_by: '',
-                taken_at: '',
-                staff_number: '',
-                department: '',
-                will_return_at: '',
-                contact: '',
-                is_returned: false,
-                remark: '',
-                items_records: [
-                    {
-                        item: 1,
-                        assets_model: '',
-                        assets_no: '',
-                        place_of_use: '',
-                        returned_by: '',
-                        returned_at: '',
-                    },
-                ],
-                hired_out_by: '',
-                hired_out_at: '',
-                returned_by: '',
-                returned_at: '',
-            };
-            this.currentItem = 1;
+        async getRecord(id) {
+            let res = await this.Record.getSpecifyRecord(id);
+            console.log(res);
+            this.record = await res.message[0];
+            this.currentItem = this.record.items_records.length;
         },
-        async submit() {
-            const res = await this.API.insertRecord(this.record);
+        async update() {
+            const res = await this.Record(this.record);
             if (res.status == false) {
                 for await (const value of Object.entries(res.message)) {
                     this.$message.error(`${value[1]}`);
@@ -224,7 +208,7 @@ export default {
             this.record.items_records[item[1] - 1] = item[0];
         },
         open() {
-            this.$confirm('新增成功，是否需要回到首頁嗎？', '温馨提示', {
+            this.$confirm('更新成功，是否需要回到首頁嗎？', '温馨提示', {
                 confirmButtonText: '是',
                 cancelButtonText: '否',
                 type: 'success',

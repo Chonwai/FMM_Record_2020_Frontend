@@ -6,6 +6,7 @@
             :placeholder="placeholder"
             class="w-2/3 border rounded-lg p-2 ml-4"
             v-on:input="updateValue($event.target.value)"
+            :value="value"
         />
     </div>
 </template>
@@ -23,6 +24,10 @@ export default {
             default: '',
         },
         placeholder: {
+            type: String,
+            default: '',
+        },
+        value: {
             type: String,
             default: '',
         },
