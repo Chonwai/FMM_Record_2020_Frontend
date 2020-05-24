@@ -30,6 +30,11 @@ const routes = [
         component: () => import(/* webpackChunkName: "about" */ '../views/Print/PrintMain'),
     },
     {
+        path: '/print/:id',
+        name: 'PrintPassByID',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Print/PrintMain'),
+    },
+    {
         path: '/record/new',
         name: 'NewRecord',
         component: () => import(/* webpackChunkName: "about" */ '../views/NewRecord/NewRecordMain'),

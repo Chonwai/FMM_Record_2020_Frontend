@@ -172,7 +172,7 @@ export default {
         },
     },
     created() {
-        this.printRecordID = this.$route.params.FormID;
+        this.printRecordID = this.$route.params.id;
         if (this.printRecordID == null) {
             this.inputFormID();
         } else {
