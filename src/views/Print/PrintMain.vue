@@ -14,14 +14,14 @@
             <FormElement class="w-1/2" title="電話：" subtitle="Contact:" :value="record.contact" />
         </div>
         <FormItemsTable class="w-full" :items="record.items_records"/>
-        <div class="w-full p-2 flex flex-row">
+        <div class="w-full p-2 flex flex-row mb-2">
             <div class="w-1/12 flex flex-col items-start">
                 <p>備註：</p>
                 <p class="text-xs">Remark:</p>
             </div>
             <div class="border-b-2 w-11/12 border-black flex justify-start items-end text-xl">{{ record.remark }}</div>
         </div>
-        <div class="p-2 bg-black text-white">
+        <div class="p-2 bg-black text-white mb-2">
             <p class="text-2xl">設施管理及維護處職員專用</p>
             <p class="text-xl">For FMM staff use only</p>
         </div>

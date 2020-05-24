@@ -2,7 +2,7 @@
     <div id="app" class="min-h-screen">
         <SideNavigation />
         <div id="main-window" class="ml-72">
-            <router-view class="w-full" />
+            <router-view />
             <Footer />
         </div>
     </div>
