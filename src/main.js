@@ -15,6 +15,9 @@ import './assets/css/my-element-ui.scss';
 
 Vue.config.productionTip = false;
 
+Vue.use(Snotify, options);
+Vue.use(ElementUI);
+
 new Vue({
     router,
     store,
@@ -26,6 +29,3 @@ const options = {
         position: SnotifyPosition.rightTop,
     },
 };
-
-Vue.use(Snotify, options);
-Vue.use(ElementUI);
