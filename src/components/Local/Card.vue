@@ -26,10 +26,16 @@
                 <p class="text-gray-700 text-base text-left mb-1">是否已還：已還</p>
                 <div class="flex justify-end">
                     <router-link
-                        class="w-1/3 left-0 border rounded p-1"
+                        class="w-1/3 left-0 border rounded p-1 mr-2"
                         :to="{ name: 'UpdateRecord', params: { id: record.id } }"
                     >
                         <button class="w-full">更新</button>
+                    </router-link>
+                    <router-link
+                        class="w-1/3 left-0 border rounded p-1"
+                        :to="{ name: 'PrintPassByID', params: { id: record.id } }"
+                    >
+                        <button class="w-full">列印</button>
                     </router-link>
                 </div>
             </div>
