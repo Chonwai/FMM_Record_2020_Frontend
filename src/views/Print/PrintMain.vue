@@ -297,28 +297,6 @@ export default {
                         message: '取消查詢',
                     });
                 });
-            // swal({
-            //     title: '請輸入表單編號',
-            //     content: {
-            //         element: 'input',
-            //         attributes: {
-            //             placeholder: '查詢「FMM1」只輸入「1」即可！如查詢空表單請按OK。',
-            //             type: 'number',
-            //             min: '1',
-            //         },
-            //     },
-            //     closeOnClickOutside: true,
-            // }).then(value => {
-            //     if (value > 0) {
-            //         this.printFromID = Math.floor(value);
-            //         this.getPrintRecord();
-            //         swal({
-            //             title: `成功找到FMM${this.printFromID}表單！`,
-            //         });
-            //     } else if (value < 0) {
-            //         this.inputFormID();
-            //     }
-            // });
         },
     },
     created() {

@@ -62,7 +62,7 @@
                 placeholder="請輸入備註"
                 v-model="record.remark"
             />
-            <div class="mb-4 w-full px-4 flex items-center justify-end">
+            <!-- <div class="mb-4 w-full px-4 flex items-center justify-end">
                 <label for="items-counter">新加入項目數量</label>
                 <el-input-number
                     class="ml-4"
@@ -73,7 +73,7 @@
                     :max="10"
                     label="描述文字"
                 ></el-input-number>
-            </div>
+            </div> -->
             <ItemInput
                 v-for="(item, index) in currentItem"
                 :key="index"
@@ -181,7 +181,7 @@ export default {
             this.currentItem = this.record.items_records.length;
         },
         async update() {
-            const res = await this.Record(this.record);
+            const res = await this.Record.updateRecord(this.record, this.currentRecordID);
             if (res.status == false) {
                 for await (const value of Object.entries(res.message)) {
                     this.$message.error(`${value[1]}`);
@@ -190,20 +190,20 @@ export default {
                 this.open();
             }
         },
-        handleChange(currentValue, oldValue) {
-            if (currentValue > oldValue) {
-                this.record.items_records.push({
-                    item: this.currentItem,
-                    assets_model: '',
-                    assets_no: '',
-                    place_of_use: '',
-                    returned_by: '',
-                    returned_at: '',
-                });
-            } else if (currentValue < oldValue) {
-                this.record.items_records.pop();
-            }
-        },
+        // handleChange(currentValue, oldValue) {
+        //     if (currentValue > oldValue) {
+        //         this.record.items_records.push({
+        //             item: this.currentItem,
+        //             assets_model: '',
+        //             assets_no: '',
+        //             place_of_use: '',
+        //             returned_by: '',
+        //             returned_at: '',
+        //         });
+        //     } else if (currentValue < oldValue) {
+        //         this.record.items_records.pop();
+        //     }
+        // },
         updateItem(item) {
             this.record.items_records[item[1] - 1] = item[0];
         },

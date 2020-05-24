@@ -19,7 +19,7 @@ class RecordAPI {
     }
 
     async updateRecord(data, id) {
-        let res = await axios.put(domain + `/api/v1/records/${id}`, data);
+        let res = await axios.put(domain + `/api/v1/records/${id}/update`, data);
         return res.data;
     }
 }
