@@ -20,27 +20,27 @@
       "icon_name": "search.svg"
     },
     {
-      "project_name": "newAssets",
+      "project_name": "NewAssets",
       "project_title": "新增設備資料",
       "icon_name": "trolley.svg"
     },
     {
-      "project_name": "editAssets",
+      "project_name": "AssetsList",
       "project_title": "查詢或更新設備資料",
       "icon_name": "school-material.svg"
     },
     {
-      "project_name": "addNewUser",
+      "project_name": "AddNewUser",
       "project_title": "新增用戶",
       "icon_name": "add-user.svg"
     },
     {
-      "project_name": "internalUser",
+      "project_name": "InternalUser",
       "project_title": "內部用戶",
       "icon_name": "relations.svg"
     },
     {
-      "project_name": "externalUser",
+      "project_name": "ExternalUser",
       "project_title": "外部用戶",
       "icon_name": "relationship.svg"
     },

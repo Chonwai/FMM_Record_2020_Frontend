@@ -46,6 +46,41 @@ const routes = [
             import(/* webpackChunkName: "about" */ '../views/UpdateRecord/UpdateRecordMain'),
         props: true,
     },
+    {
+        path: '/assets/new',
+        name: 'NewAssets',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Development'),
+        props: true,
+    },
+    {
+        path: '/assets/update',
+        name: 'AssetsList',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Development'),
+        props: true,
+    },
+    {
+        path: '/users/new',
+        name: 'AddNewUser',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Development'),
+        props: true,
+    },
+    {
+        path: '/users/internal',
+        name: 'InternalUser',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Development'),
+        props: true,
+    },
+    {
+        path: '/users/external',
+        name: 'ExternalUser',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Development'),
+        props: true,
+    },
+    {
+        path: '*',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Development'),
+        props: true,
+    },
 ];
 
 const router = new VueRouter({
