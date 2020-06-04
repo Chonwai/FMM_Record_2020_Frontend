@@ -55,7 +55,8 @@ const routes = [
     {
         path: '/assets/update',
         name: 'AssetsList',
-        component: () => import(/* webpackChunkName: "about" */ '../views/Development'),
+        component: () =>
+            import(/* webpackChunkName: "about" */ '../views/AssetsList/AssetsListMain'),
         props: true,
     },
     {
