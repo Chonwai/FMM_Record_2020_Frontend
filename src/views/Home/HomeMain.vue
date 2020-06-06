@@ -1,7 +1,7 @@
 <template>
-    <div id="home-container" class="flex flex-wrap p-12">
+    <div id="home-container" class="p-12">
         <router-link
-            class="cards w-1/4 p-8"
+            class="cards w-1/6 p-8 inline-block"
             v-for="(item, index) in functionList"
             :key="index"
             :to="{ name: item.project_name }"
@@ -10,7 +10,7 @@
                 <img :src="require('@/assets/images/' + item.icon_name)" alt="icon" />
             </div>
             <div class="card-title">
-                <p class="text-2xl font-bold">{{ item.project_title }}</p>
+                <p class="text-lg font-bold text-center">{{ item.project_title }}</p>
             </div>
         </router-link>
     </div>
@@ -37,6 +37,7 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    height: calc(100vh - 3rem);
 }
 
 .cards {

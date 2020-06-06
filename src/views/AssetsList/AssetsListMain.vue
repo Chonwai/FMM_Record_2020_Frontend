@@ -1,6 +1,6 @@
 <template>
     <div id="record-container" class="min-h-screen p-12 font-medium">
-        <h1 class="text-3xl font-bold mb-4">查詢或更新設備資料</h1>
+        <h1 class="text-3xl font-bold mb-4 flex justify-center items-center">查詢或更新設備資料</h1>
         <div class="flex flex-wrap justify-center items-center mb-4">
             <div class="w-full">
                 <el-table
@@ -56,6 +56,7 @@
             </div>
         </div>
         <el-pagination
+            class="flex justify-center items-center"
             background
             layout="prev, pager, next"
             :page-size="20"

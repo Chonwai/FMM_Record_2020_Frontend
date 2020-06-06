@@ -1,6 +1,6 @@
 <template>
     <div id="new-record-container" class="p-12 flex flex-col justify-center items-center">
-        <h1 class="text-3xl font-bold mb-4">新增表單</h1>
+        <h1 class="text-3xl font-bold mb-4 flex justify-center items-center">新增表單</h1>
         <main class="w-2/3 flex flex-wrap border p-4 rounded-lg">
             <div class="input-box w-full flex flex-row items-center px-4 mb-4 justify-end">
                 <el-switch
