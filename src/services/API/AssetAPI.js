@@ -22,6 +22,11 @@ class AssetAPI {
         let res = await axios.put(domain + `/api/v1/assets/${id}/update`, data);
         return res.data;
     }
+
+    async deleteAsset(id) {
+        let res = await axios.delete(domain + `/api/v1/assets/${id}`);
+        return res.data;
+    }
 }
 
 export default AssetAPI;
