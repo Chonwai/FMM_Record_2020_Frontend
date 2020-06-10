@@ -30,13 +30,13 @@
       "icon_name": "school-material.svg"
     },
     {
-      "project_name": "AddNewUser",
-      "project_title": "新增用戶",
+      "project_name": "AddNewTenant",
+      "project_title": "新增借用人",
       "icon_name": "add-user.svg"
     },
     {
-      "project_name": "InternalUser",
-      "project_title": "內部用戶",
+      "project_name": "TenantsList",
+      "project_title": "查詢或更新借用人資料",
       "icon_name": "relations.svg"
     },
     {

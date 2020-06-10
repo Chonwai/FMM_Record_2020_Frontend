@@ -53,16 +53,22 @@ const routes = [
         props: true,
     },
     {
-        path: '/assets/update',
+        path: '/assets',
         name: 'AssetsList',
         component: () =>
             import(/* webpackChunkName: "about" */ '../views/AssetsList/AssetsListMain'),
         props: true,
     },
     {
-        path: '/users/new',
-        name: 'AddNewUser',
+        path: '/tenants/new',
+        name: 'AddNewTenant',
         component: () => import(/* webpackChunkName: "about" */ '../views/Development'),
+        props: true,
+    },
+    {
+        path: '/tenants',
+        name: 'TenantsList',
+        component: () => import(/* webpackChunkName: "about" */ '../views/TenantsList/TenantsListMain'),
         props: true,
     },
     {

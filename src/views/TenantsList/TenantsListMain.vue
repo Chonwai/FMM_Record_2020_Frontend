@@ -1,11 +1,11 @@
 <template>
-    <div id="assets-list-container" class="min-h-screen p-12 font-medium">
-        <h1 class="text-3xl font-bold mb-4 flex justify-center items-center">查詢或更新設備資料</h1>
+    <div id="tenants-list-container" class="min-h-screen p-12 font-medium">
+        <h1 class="text-3xl font-bold mb-4 flex justify-center items-center">查詢或更新借用人資料</h1>
         <div class="flex flex-wrap justify-center items-center mb-4">
             <div class="w-full">
                 <el-table
                     :data="
-                        assets.filter(
+                        tenants.filter(
                             data =>
                                 !search || data.name.toLowerCase().includes(search.toLowerCase())
                         )
@@ -17,27 +17,28 @@
                 >
                     <el-table-column
                         fixed="left"
-                        prop="asset_id"
-                        label="財產編號"
+                        prop="staff_number"
+                        label="職員/學生證號碼"
                         width="175"
                     ></el-table-column>
-                    <el-table-column prop="name" label="財產名稱" width="250"></el-table-column>
-                    <el-table-column
-                        prop="description"
-                        label="財產描述"
-                        width="250"
-                    ></el-table-column>
-                    <el-table-column prop="state" label="財產狀態" width="250">
+                    <el-table-column prop="name" label="借用人名稱" width="250"></el-table-column>
+                    <el-table-column prop="contact" label="電話" width="250"></el-table-column>
+                    <el-table-column prop="email" label="電郵" width="250"></el-table-column>
+                    <el-table-column prop="department" label="部門" width="250"></el-table-column>
+                    <el-table-column prop="status" label="內部/外部" width="250">
                         <template slot-scope="scope">
                             <el-tag
-                                :type="scope.row.state === 'GOOD' ? 'success' : 'danger'"
+                                :type="scope.row.status === 'internal' ? 'success' : 'brand'"
                                 disable-transitions
-                                >{{ scope.row.state }}</el-tag
+                                >{{ scope.row.status }}</el-tag
                             >
                         </template>
                     </el-table-column>
-                    <el-table-column prop="category" label="財產種類" width="250"></el-table-column>
-                    <el-table-column prop="location" label="財產地點" width="250"></el-table-column>
+                    <el-table-column
+                        prop="created_at"
+                        label="加入日期"
+                        width="250"
+                    ></el-table-column>
                     <el-table-column fixed="right" align="right" width="175">
                         <template slot="header" slot-scope="scope">
                             <el-input v-model="search" size="mini" placeholder="輸入關鍵字搜尋" />
@@ -67,30 +68,30 @@
 </template>
 
 <script>
-import AssetAPI from '../../services/API/AssetAPI';
+import TenantsAPI from '../../services/API/TenantAPI';
 export default {
-    name: 'AssetsListMain',
+    name: 'TenantsListMain',
     data() {
         return {
-            API: new AssetAPI(),
-            assets: [],
+            API: new TenantsAPI(),
+            tenants: [],
             total: 0,
             search: '',
-        };
+        }
     },
     created() {
         this.init();
     },
     methods: {
         async init() {
-            let res = await this.API.getAllAssets(1);
+            let res = await this.API.getAllTenants(1);
             this.total = res.message.total;
-            this.assets = res.message.data;
+            this.tenants = res.message.data;
         },
         async handleCurrentChange(page) {
-            let res = await this.API.getAllAssets(page);
+            let res = await this.API.getAllTenants(page);
             this.total = res.message.total;
-            this.assets = res.message.data;
+            this.tenants = res.message.data;
         },
         handleEdit(index, row) {
             console.log(index, row);
@@ -102,7 +103,7 @@ export default {
                 type: 'warning',
             })
                 .then(async () => {
-                    let res = await this.API.deleteAsset(row.id);
+                    let res = await this.API.deleteTenant(row.id);
                     console.log(res);
                     if (res.status == true) {
                         this.$message({
@@ -120,7 +121,9 @@ export default {
                 });
         },
     },
-};
+}
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+    
+</style>
