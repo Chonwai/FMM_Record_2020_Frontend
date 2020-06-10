@@ -1,5 +1,5 @@
 <template>
-    <div class="w-1/2 flex">
+    <div class="flex">
         <div
             class="w-full flex p-2 m-2 border-2 border-teal-500 rounded"
             v-if="record.is_returned == true"

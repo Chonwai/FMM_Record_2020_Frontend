@@ -2,7 +2,7 @@
     <div id="record-container" class="min-h-screen p-12">
         <h1 class="text-3xl font-bold mb-4 flex justify-center items-center">查詢或更新記錄</h1>
         <div class="cards flex flex-wrap mb-4">
-            <Card v-for="record in records" :key="record.id" :record.sync="record" />
+            <Card class="w-1/3" v-for="record in records" :key="record.id" :record.sync="record" />
         </div>
         <el-pagination
             class="flex justify-center items-center"
