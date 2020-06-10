@@ -68,7 +68,8 @@ const routes = [
     {
         path: '/tenants',
         name: 'TenantsList',
-        component: () => import(/* webpackChunkName: "about" */ '../views/TenantsList/TenantsListMain'),
+        component: () =>
+            import(/* webpackChunkName: "about" */ '../views/TenantsList/TenantsListMain'),
         props: true,
     },
     {

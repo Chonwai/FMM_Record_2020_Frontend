@@ -1,6 +1,8 @@
 <template>
     <div id="tenants-list-container" class="min-h-screen p-12 font-medium">
-        <h1 class="text-3xl font-bold mb-4 flex justify-center items-center">查詢或更新借用人資料</h1>
+        <h1 class="text-3xl font-bold mb-4 flex justify-center items-center">
+            查詢或更新借用人資料
+        </h1>
         <div class="flex flex-wrap justify-center items-center mb-4">
             <div class="w-full">
                 <el-table
@@ -77,7 +79,7 @@ export default {
             tenants: [],
             total: 0,
             search: '',
-        }
+        };
     },
     created() {
         this.init();
@@ -121,9 +123,7 @@ export default {
                 });
         },
     },
-}
+};
 </script>
 
-<style lang="scss" scoped>
-    
-</style>
+<style lang="scss" scoped></style>
