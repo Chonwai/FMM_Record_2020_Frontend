@@ -47,16 +47,16 @@ const routes = [
         props: true,
     },
     {
-        path: '/assets/new',
-        name: 'NewAssets',
-        component: () => import(/* webpackChunkName: "about" */ '../views/Development'),
-        props: true,
-    },
-    {
         path: '/assets',
         name: 'AssetsList',
         component: () =>
             import(/* webpackChunkName: "about" */ '../views/AssetsList/AssetsListMain'),
+        props: true,
+    },
+    {
+        path: '/assets/new',
+        name: 'NewAssets',
+        component: () => import(/* webpackChunkName: "about" */ '../views/NewAsset/NewAssetMain'),
         props: true,
     },
     {

@@ -40,11 +40,6 @@
       "icon_name": "relations.svg"
     },
     {
-      "project_name": "ExternalUser",
-      "project_title": "外部用戶",
-      "icon_name": "relationship.svg"
-    },
-    {
       "project_name": "About",
       "project_title": "關於",
       "icon_name": "chat.svg"
