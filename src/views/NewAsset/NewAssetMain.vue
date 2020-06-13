@@ -122,7 +122,7 @@ export default {
                 contact: '',
             },
             API: new AssetAPI(),
-        }
+        };
     },
     components: {
         InputX,
@@ -140,9 +140,7 @@ export default {
             }
         },
     },
-}
+};
 </script>
 
-<style lang="scss" scoped>
-    
-</style>
+<style lang="scss" scoped></style>
