@@ -49,14 +49,15 @@ const routes = [
     {
         path: '/assets',
         name: 'AssetsList',
-        component: () =>
-            import(/* webpackChunkName: "about" */ '../views/AssetsList/AssetsListMain'),
+        // component: () => import(/* webpackChunkName: "about" */ '../views/AssetsList/AssetsListMain'),
+        component: () => import(/* webpackChunkName: "about" */ '../views/Development'),
         props: true,
     },
     {
         path: '/assets/new',
         name: 'NewAssets',
-        component: () => import(/* webpackChunkName: "about" */ '../views/NewAsset/NewAssetMain'),
+        // component: () => import(/* webpackChunkName: "about" */ '../views/NewAsset/NewAssetMain'),
+        component: () => import(/* webpackChunkName: "about" */ '../views/Development'),
         props: true,
     },
     {
@@ -68,8 +69,8 @@ const routes = [
     {
         path: '/tenants',
         name: 'TenantsList',
-        component: () =>
-            import(/* webpackChunkName: "about" */ '../views/TenantsList/TenantsListMain'),
+        // component: () => import(/* webpackChunkName: "about" */ '../views/TenantsList/TenantsListMain'),
+        component: () => import(/* webpackChunkName: "about" */ '../views/Development'),
         props: true,
     },
     {
