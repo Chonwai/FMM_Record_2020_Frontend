@@ -70,7 +70,7 @@ export default {
                 contact: '',
                 staff_number: '',
                 department: '',
-                sum: '',
+                sum: 0,
                 status: '',
             },
             API: new TenantAPI(),
@@ -81,7 +81,6 @@ export default {
     },
     methods: {
         async submit() {
-            console.log(this.tenant);
             const res = await this.API.insertTenant(this.tenant);
             if (res.status == false) {
                 for await (const value of Object.entries(res.message)) {
