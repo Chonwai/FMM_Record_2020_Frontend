@@ -49,7 +49,8 @@ const routes = [
     {
         path: '/assets',
         name: 'AssetsList',
-        component: () => import(/* webpackChunkName: "about" */ '../views/AssetsList/AssetsListMain'),
+        component: () =>
+            import(/* webpackChunkName: "about" */ '../views/AssetsList/AssetsListMain'),
         props: true,
     },
     {
@@ -67,7 +68,8 @@ const routes = [
     {
         path: '/tenants',
         name: 'TenantsList',
-        component: () => import(/* webpackChunkName: "about" */ '../views/TenantsList/TenantsListMain'),
+        component: () =>
+            import(/* webpackChunkName: "about" */ '../views/TenantsList/TenantsListMain'),
         props: true,
     },
     {
