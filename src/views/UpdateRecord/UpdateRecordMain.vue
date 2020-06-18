@@ -167,7 +167,6 @@ export default {
     },
     async created() {
         await this.getRecord(this.currentRecordID);
-        console.log(this.record);
     },
     components: {
         InputX,
@@ -176,7 +175,6 @@ export default {
     methods: {
         async getRecord(id) {
             let res = await this.Record.getSpecifyRecord(id);
-            console.log(res);
             this.record = await res.message[0];
             this.currentItem = this.record.items_records.length;
         },

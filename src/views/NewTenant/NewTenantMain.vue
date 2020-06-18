@@ -1,5 +1,5 @@
 <template>
-    <div id="new-tenant-main-container" class="p-12 flex flex-col justify-center items-center">
+    <div id="new-tenant-main-container" class="p-12 flex flex-col justify-start items-center">
         <h1 class="text-3xl font-bold mb-4 flex justify-center items-center">新增借用人</h1>
         <main class="w-2/3 flex flex-wrap border p-4 rounded-lg">
             <div class="input-box w-full flex flex-row items-center px-4 mb-4 justify-end">
@@ -94,4 +94,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#new-tenant-main-container {
+    height: calc(100vh - 3rem);
+}
+</style>

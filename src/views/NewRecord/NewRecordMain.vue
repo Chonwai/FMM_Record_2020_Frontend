@@ -198,7 +198,6 @@ export default {
             this.currentItem = 1;
         },
         async submit() {
-            console.log(this.record);
             const res = await this.API.insertRecord(this.record);
             if (res.status == false) {
                 for await (const value of Object.entries(res.message)) {

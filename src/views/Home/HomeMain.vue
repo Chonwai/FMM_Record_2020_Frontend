@@ -1,23 +1,29 @@
 <template>
-    <div id="home-container" class="p-12">
-        <router-link
-            class="cards w-1/6 p-8 inline-block"
-            v-for="(item, index) in functionList"
-            :key="index"
-            :to="{ name: item.project_name }"
-        >
-            <div class="card-icon mb-4">
-                <img :src="require('@/assets/images/' + item.icon_name)" alt="icon" />
-            </div>
-            <div class="card-title">
-                <p class="text-lg font-bold text-center">{{ item.project_title }}</p>
-            </div>
-        </router-link>
+    <div id="home-container" class="p-12 flex flex-row">
+        <div class="w-3/5">
+            <router-link
+                class="cards w-1/5 p-8 inline-block"
+                v-for="(item, index) in functionList"
+                :key="index"
+                :to="{ name: item.project_name }"
+            >
+                <div class="card-icon mb-4">
+                    <img :src="require('@/assets/images/' + item.icon_name)" alt="icon" />
+                </div>
+                <div class="card-title">
+                    <p class="text-lg font-bold text-center">{{ item.project_title }}</p>
+                </div>
+            </router-link>
+        </div>
+        <div class="w-2/5 h-full p-8">
+            <RecordTable />
+        </div>
     </div>
 </template>
 
 <script>
 import Utils from '../../utils/Utils';
+import RecordTable from '../../components/Dashboard/RecordTableComponent';
 export default {
     name: 'HomeMain',
     data() {
@@ -27,6 +33,9 @@ export default {
     },
     created() {
         this.functionList = Utils.functionList();
+    },
+    components: {
+        RecordTable,
     },
 };
 </script>

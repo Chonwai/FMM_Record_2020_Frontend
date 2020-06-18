@@ -1,7 +1,7 @@
 <template>
-    <aside id="side-navigation-component" class="h-screen w-72 bg-teal-800 fixed p-8">
-        <div class="p-8 mb-4">
-            <img src="@/assets/images/strategy.svg" alt="icon" srcset />
+    <aside id="side-navigation-component" class="h-screen w-64 bg-teal-800 fixed p-8">
+        <div class="p-8 mb-4 flex justify-center">
+            <img class="w-4/5" src="@/assets/images/strategy.svg" alt="icon" srcset />
         </div>
         <div class="flex flex-col justify-center items-start w-full overflow-scroll">
             <router-link
@@ -11,10 +11,12 @@
                 class="nav-item w-full h-10 mb-2 flex flex-row items-center overflow-scroll"
             >
                 <img
-                    class="w-1/5 h-auto bg-white rounded-lg p-2"
+                    class="w-1/6 h-auto bg-white rounded-lg p-2"
                     :src="require('@/assets/images/' + item.icon_name)"
                 />
-                <p class="w-3/4 flex justify-start text-white pl-2">{{ item.project_title }}</p>
+                <p class="w-5/6 flex justify-start text-white pl-2 text-sm">
+                    {{ item.project_title }}
+                </p>
             </router-link>
         </div>
     </aside>
