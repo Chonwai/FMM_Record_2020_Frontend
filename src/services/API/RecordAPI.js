@@ -13,6 +13,20 @@ class RecordAPI {
         return res.data;
     }
 
+    async getNonReturnedRecords(page = 1) {
+        let res = await axios.get(
+            domain + `/api/v1/analysis/records/filter?is_return=false&page=${page}`
+        );
+        return res.data;
+    }
+
+    async getIsReturnedRecords(page = 1) {
+        let res = await axios.get(
+            domain + `/api/v1/analysis/records/filter?is_return=true&page=${page}`
+        );
+        return res.data;
+    }
+
     async insertRecord(data) {
         let res = await axios.post(domain + `/api/v1/records`, data);
         return res.data;

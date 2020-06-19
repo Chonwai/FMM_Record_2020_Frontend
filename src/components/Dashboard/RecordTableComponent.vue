@@ -6,7 +6,7 @@
             :default-sort="{ prop: 'id', order: 'descending' }"
             height="100%"
         >
-            <el-table-column prop="id" label="未還表單編號" sortable width="150"></el-table-column>
+            <el-table-column prop="id" label="未完成的表單" sortable width="150"></el-table-column>
             <el-table-column prop="hired_out_at" label="日期" sortable width="150">
             </el-table-column>
             <el-table-column prop="taken_by" label="領取人"> </el-table-column>
@@ -35,7 +35,7 @@ export default {
             return row.address;
         },
         async init() {
-            let res = await this.API.getAllRecords(1);
+            let res = await this.API.getNonReturnedRecords(1);
             this.records = res.message.data;
             for (let record of this.records) {
                 record.id = 'FMM' + record.id;
