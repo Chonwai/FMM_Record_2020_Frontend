@@ -15,8 +15,9 @@
                 </div>
             </router-link>
         </div>
-        <div class="w-2/5 h-full p-8">
-            <RecordTable />
+        <div class="w-2/5 h-full p-8 flex flex-col">
+            <RecordCount class="w-full flex-1" />
+            <RecordTable class="record-table overflow-hidden" />
         </div>
     </div>
 </template>
@@ -24,6 +25,7 @@
 <script>
 import Utils from '../../utils/Utils';
 import RecordTable from '../../components/Dashboard/RecordTableComponent';
+import RecordCount from '../../components/Dashboard/RecordCountComponent';
 export default {
     name: 'HomeMain',
     data() {
@@ -36,6 +38,7 @@ export default {
     },
     components: {
         RecordTable,
+        RecordCount,
     },
 };
 </script>
@@ -69,5 +72,9 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.record-table {
+    flex: 3;
 }
 </style>

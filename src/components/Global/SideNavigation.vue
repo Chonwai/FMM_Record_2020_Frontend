@@ -11,10 +11,10 @@
                 class="nav-item w-full h-10 mb-2 flex flex-row items-center overflow-scroll"
             >
                 <img
-                    class="w-1/6 h-auto bg-white rounded-lg p-2"
+                    class="w-1/5 h-auto bg-white rounded-lg p-1"
                     :src="require('@/assets/images/' + item.icon_name)"
                 />
-                <p class="w-5/6 flex justify-start text-white pl-2 text-sm">
+                <p class="w-4/5 flex justify-start text-white pl-2 text-sm">
                     {{ item.project_title }}
                 </p>
             </router-link>
@@ -23,7 +23,6 @@
 </template>
 
 <script>
-// import Utils from '../../utils/Utils';
 import FunctionList from '@/data/FunctionList.json';
 export default {
     name: 'SideNavigation',
