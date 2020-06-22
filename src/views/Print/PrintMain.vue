@@ -141,7 +141,6 @@ export default {
         async getPrintRecord() {
             let res = await this.API.getSpecifyRecord(this.printRecordID);
             this.record = res.message[0];
-            console.log(this.record);
         },
         inputFormID() {
             this.$prompt(

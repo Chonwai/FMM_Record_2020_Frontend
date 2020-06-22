@@ -40,7 +40,6 @@ export default {
             for (let record of this.records) {
                 record.id = 'FMM' + record.id;
             }
-            console.log(this.records);
         },
     },
     created() {

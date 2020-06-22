@@ -4,13 +4,13 @@
             <div class="w-1/2">
                 <h1 class="flex justify-center text-lg font-bold">表單總計</h1>
                 <p class="text-6xl flex justify-center items-center h-full font-bold">
-                    673
+                    {{ allRecords }}
                 </p>
             </div>
             <div class="w-1/2">
                 <h1 class="flex justify-center text-lg font-bold">已完成</h1>
                 <p class="text-6xl flex justify-center items-center h-full font-bold text-teal-600">
-                    628
+                    {{ finishedRecords }}
                 </p>
             </div>
         </div>
@@ -18,15 +18,34 @@
             class="w-full px-8"
             :text-inside="true"
             :stroke-width="20"
-            :percentage="(628 / 673) * 100"
+            :percentage="(finishedRecords / allRecords) * 100"
             color="#319795"
         ></el-progress>
     </div>
 </template>
 
 <script>
+import RecordAPI from '../../services/API/RecordAPI';
 export default {
     name: 'RecordCountComponent',
+    data() {
+        return {
+            API: new RecordAPI(),
+            allRecords: 0,
+            finishedRecords: 0,
+        };
+    },
+    created() {
+        this.init();
+    },
+    methods: {
+        async init() {
+            let res = await this.API.getAmountOfRecords('all');
+            this.allRecords = res.message;
+            res = await this.API.getAmountOfRecords('finished');
+            this.finishedRecords = res.message;
+        },
+    },
 };
 </script>
 

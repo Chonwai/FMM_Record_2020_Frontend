@@ -103,7 +103,6 @@ export default {
             })
                 .then(async () => {
                     let res = await this.API.deleteAsset(row.id);
-                    console.log(res);
                     if (res.status == true) {
                         this.$message({
                             type: 'success',

@@ -139,6 +139,19 @@ export default {
                 this.open();
             }
         },
+        open() {
+            this.$confirm('新增成功，是否需要回到首頁嗎？', '温馨提示', {
+                confirmButtonText: '是',
+                cancelButtonText: '否',
+                type: 'success',
+            })
+                .then(() => {
+                    this.$router.push('/');
+                })
+                .catch(() => {
+                    this.init();
+                });
+        },
     },
 };
 </script>

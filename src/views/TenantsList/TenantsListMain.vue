@@ -97,6 +97,7 @@ export default {
         },
         handleEdit(index, row) {
             console.log(index, row);
+            this.$router.push({ name: 'UpdateTenant', params: { id: row.id } });
         },
         handleDelete(row) {
             this.$confirm('此動作會永久删除這筆資料, 是否刪除？', '提示', {
@@ -106,7 +107,6 @@ export default {
             })
                 .then(async () => {
                     let res = await this.API.deleteTenant(row.id);
-                    console.log(res);
                     if (res.status == true) {
                         this.$message({
                             type: 'success',

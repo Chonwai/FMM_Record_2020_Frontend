@@ -27,6 +27,11 @@ class RecordAPI {
         return res.data;
     }
 
+    async getAmountOfRecords(data) {
+        let res = await axios.get(domain + `/api/v1/analysis/records/amount?count=${data}`);
+        return res.data;
+    }
+
     async insertRecord(data) {
         let res = await axios.post(domain + `/api/v1/records`, data);
         return res.data;

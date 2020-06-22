@@ -1,6 +1,6 @@
 <template>
     <div id="new-tenant-main-container" class="p-12 flex flex-col justify-start items-center">
-        <h1 class="text-3xl font-bold mb-4 flex justify-center items-center">新增借用人</h1>
+        <h1 class="text-3xl font-bold mb-4 flex justify-center items-center">更新借用人</h1>
         <main class="w-2/3 flex flex-wrap border p-4 rounded-lg">
             <div class="input-box w-full flex flex-row items-center px-4 mb-4 justify-end">
                 <el-switch
@@ -50,7 +50,7 @@
             />
             <div class="mb-4 px-4 w-full flex justify-end">
                 <button class="input-box py-2 px-4 border rounded-lg" @click="submit">
-                    新增
+                    更新
                 </button>
             </div>
         </main>
@@ -74,12 +74,20 @@ export default {
                 status: '',
             },
             API: new TenantAPI(),
+            currentTenantID: this.$route.params.id,
         };
     },
     components: {
         InputX,
     },
+    async created() {
+        await this.getTenant(this.currentTenantID);
+    },
     methods: {
+        async getTenant(id) {
+            let res = await this.API.getSpecifyTenant(id);
+            this.tenant = await res.message[0];
+        },
         async submit() {
             const res = await this.API.insertTenant(this.tenant);
             if (res.status == false) {
