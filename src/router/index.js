@@ -62,7 +62,8 @@ const routes = [
     {
         path: '/assets/:id/update',
         name: 'UpdateAsset',
-        component: () => import(/* webpackChunkName: "about" */ '../views/UpdateAsset/UpdateAssetMain'),
+        component: () =>
+            import(/* webpackChunkName: "about" */ '../views/UpdateAsset/UpdateAssetMain'),
         props: true,
     },
     {

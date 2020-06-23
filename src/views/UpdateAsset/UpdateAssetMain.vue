@@ -149,7 +149,7 @@ export default {
         },
         async submit() {
             console.log(this.currentAssetID);
-            const res = await this.API.updateAsset(this.assets, this.currentAssetID)
+            const res = await this.API.updateAsset(this.assets, this.currentAssetID);
             if (res.status == false) {
                 for await (const value of Object.entries(res.message)) {
                     this.$message.error(`${value[1]}`);
