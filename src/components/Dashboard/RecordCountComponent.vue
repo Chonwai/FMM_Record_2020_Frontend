@@ -18,7 +18,7 @@
             class="w-full px-8"
             :text-inside="true"
             :stroke-width="20"
-            :percentage="(finishedRecords / allRecords) * 100"
+            :percentage="percentage"
             color="#319795"
         ></el-progress>
     </div>
@@ -33,6 +33,7 @@ export default {
             API: new RecordAPI(),
             allRecords: 0,
             finishedRecords: 0,
+            percentage: 0,
         };
     },
     created() {
@@ -44,6 +45,7 @@ export default {
             this.allRecords = res.message;
             res = await this.API.getAmountOfRecords('finished');
             this.finishedRecords = res.message;
+            this.percentage = Number(((this.finishedRecords / this.allRecords) * 100).toFixed(2));
         },
     },
 };
