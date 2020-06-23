@@ -25,80 +25,80 @@
             />
             <InputX
                 class="w-full"
-                title="領取人"
+                title="財產種類"
                 type="text"
-                placeholder="請輸入領取人"
-                v-model="assets.name"
+                placeholder="請輸入財產種類"
+                v-model="assets.category"
             />
             <InputX
                 class="w-full"
-                title="領取人"
+                title="財產狀態"
                 type="text"
-                placeholder="請輸入領取人"
-                v-model="assets.name"
+                placeholder="請輸入財產狀態"
+                v-model="assets.state"
             />
             <InputX
                 class="w-full"
-                title="領取人"
-                type="text"
-                placeholder="請輸入領取人"
-                v-model="assets.name"
+                title="購買日期"
+                type="date"
+                placeholder="請輸入購買日期"
+                v-model="assets.acquired_at"
             />
             <InputX
                 class="w-full"
-                title="領取人"
-                type="text"
-                placeholder="請輸入領取人"
-                v-model="assets.name"
+                title="購買價格"
+                type="number"
+                placeholder="請輸入購買價格"
+                v-model="assets.purchase_price"
             />
             <InputX
                 class="w-full"
-                title="領取人"
-                type="text"
-                placeholder="請輸入領取人"
-                v-model="assets.name"
+                title="當前數量"
+                type="number"
+                placeholder="請輸入當前數量"
+                v-model="assets.current_value"
             />
             <InputX
                 class="w-full"
-                title="領取人"
+                title="財產地點"
                 type="text"
-                placeholder="請輸入領取人"
-                v-model="assets.name"
+                placeholder="請輸入財產地點"
+                v-model="assets.location"
             />
             <InputX
                 class="w-full"
-                title="領取人"
+                title="生產廠商"
                 type="text"
-                placeholder="請輸入領取人"
-                v-model="assets.name"
+                placeholder="請輸入生產廠商"
+                v-model="assets.manufacturer"
             />
             <InputX
                 class="w-full"
-                title="領取人"
+                title="財產型號"
                 type="text"
-                placeholder="請輸入領取人"
-                v-model="assets.name"
+                placeholder="請輸入財產型號"
+                v-model="assets.model"
             />
             <InputX
                 class="w-full"
-                title="領取人"
+                title="財產信息"
                 type="text"
-                placeholder="請輸入領取人"
-                v-model="assets.name"
+                placeholder="請輸入財產信息"
+                v-model="assets.comments"
             />
             <InputX
                 class="w-full"
-                title="領取人"
+                title="擁有人"
                 type="text"
-                placeholder="請輸入領取人"
-                v-model="assets.name"
+                placeholder="請輸入擁有人"
+                v-model="assets.owner"
             />
             <InputX
                 class="w-full"
-                title="領取人"
-                type="text"
-                placeholder="請輸入領取人"
-                v-model="assets.name"
+                title="退役日期"
+                type="date"
+                placeholder="請輸入退役日期"
+                v-model="assets.retired_at"
             />
             <div class="mb-4 px-4 w-full flex justify-end">
                 <button class="input-box py-2 px-4 border rounded-lg" @click="submit">
@@ -117,9 +117,20 @@ export default {
     data() {
         return {
             assets: {
+                asset_id: '',
                 name: '',
-                email: '',
-                contact: '',
+                description: '',
+                category: '',
+                state: '',
+                acquired_at: '',
+                purchase_price: '',
+                current_value: '',
+                location: '',
+                manufacturer: '',
+                model: '',
+                comments: '',
+                owner: '',
+                retired_at: '',
             },
             API: new AssetAPI(),
         };
@@ -129,7 +140,6 @@ export default {
     },
     methods: {
         async submit() {
-            console.log(this.assets);
             const res = await this.API.insertAsset(this.assets);
             if (res.status == false) {
                 for await (const value of Object.entries(res.message)) {
