@@ -93,7 +93,7 @@ export default {
             this.assets = res.message.data;
         },
         handleEdit(index, row) {
-            console.log(index, row);
+            this.$router.push({ name: 'UpdateAsset', params: { id: row.id } });
         },
         handleDelete(row) {
             this.$confirm('此動作會永久删除這筆資料, 是否刪除？', '提示', {

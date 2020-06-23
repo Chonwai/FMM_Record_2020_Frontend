@@ -60,6 +60,12 @@ const routes = [
         props: true,
     },
     {
+        path: '/assets/:id/update',
+        name: 'UpdateAsset',
+        component: () => import(/* webpackChunkName: "about" */ '../views/UpdateAsset/UpdateAssetMain'),
+        props: true,
+    },
+    {
         path: '/tenants/new',
         name: 'AddNewTenant',
         component: () => import(/* webpackChunkName: "about" */ '../views/NewTenant/NewTenantMain'),

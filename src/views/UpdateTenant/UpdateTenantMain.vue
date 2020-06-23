@@ -53,7 +53,7 @@
             />
             <div class="mb-4 px-4 w-full flex justify-end">
                 <button class="input-box py-2 px-4 border rounded-lg" @click="submit">
-                    更新
+                    更新借用人
                 </button>
             </div>
         </main>
@@ -102,7 +102,7 @@ export default {
             }
         },
         open() {
-            this.$confirm('新增成功，是否需要回到首頁嗎？', '温馨提示', {
+            this.$confirm('更新成功，是否需要回到首頁嗎？', '温馨提示', {
                 confirmButtonText: '是',
                 cancelButtonText: '否',
                 type: 'success',
