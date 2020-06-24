@@ -33,7 +33,18 @@
                 type="text"
                 placeholder="請輸入職員/學生證號碼"
                 v-model="record.staff_number"
-            />
+                :search="true"
+            >
+                <template v-slot:search-button>
+                    <el-button
+                        class="ml-2"
+                        type="primary"
+                        icon="el-icon-search"
+                        @click="searchByStaffNumber"
+                        >搜尋借用人</el-button
+                    >
+                </template>
+            </InputX>
             <InputX
                 class="w-full"
                 title="所屬部門"
@@ -131,6 +142,7 @@
 import InputX from '../../components/Local/InputX';
 import ItemInput from '../../components/Local/ItemInput';
 import RecordAPI from '../../services/API/RecordAPI';
+import TenantAPI from '../../services/API/TenantAPI';
 export default {
     name: 'NewRecordMain',
     data() {
@@ -161,7 +173,8 @@ export default {
                 returned_at: '',
             },
             currentItem: 1,
-            API: new RecordAPI(),
+            RecordAPI: new RecordAPI(),
+            TenantAPI: new TenantAPI(),
         };
     },
     components: {
@@ -198,7 +211,7 @@ export default {
             this.currentItem = 1;
         },
         async submit() {
-            const res = await this.API.insertRecord(this.record);
+            const res = await this.RecordAPI.insertRecord(this.record);
             if (res.status == false) {
                 for await (const value of Object.entries(res.message)) {
                     this.$message.error(`${value[1]}`);
@@ -219,6 +232,17 @@ export default {
                 });
             } else if (currentValue < oldValue) {
                 this.record.items_records.pop();
+            }
+        },
+        async searchByStaffNumber() {
+            let filter = { staff_number: this.record.staff_number };
+            const res = await this.TenantAPI.getSpecifyTenantBySearchFilter(filter);
+            if (res.status == true) {
+                this.record.contact = res.message.contact;
+                this.record.department = res.message.department;
+                this.record.taken_by = res.message.name;
+            } else {
+                this.$message.error("找不到已登記的借用人");
             }
         },
         updateItem(item) {

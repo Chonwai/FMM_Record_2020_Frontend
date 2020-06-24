@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Utils from '../../utils/Utils';
 
 let domain = process.env.VUE_APP_DOMAIN;
 
@@ -10,6 +11,12 @@ class TenantAPI {
 
     async getSpecifyTenant(data) {
         let res = await axios.get(domain + `/api/v1/tenants/${data}`);
+        return res.data;
+    }
+
+    async getSpecifyTenantBySearchFilter(filter) {
+        filter = Utils.generateAPIFilter(filter);
+        let res = await axios.get(domain + `/api/v1/tenants/search/filter?${filter}`);
         return res.data;
     }
 
