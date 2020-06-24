@@ -8,7 +8,7 @@ class Utils {
     static generateAPIFilter(filters) {
         let sentence = '';
         for (const filter in filters) {
-            sentence += `${filter}=${filters[filter]}&`
+            sentence += `${filter}=${filters[filter]}&`;
         }
         sentence = sentence.substring(0, sentence.length - 1);
         return sentence;

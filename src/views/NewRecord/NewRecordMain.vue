@@ -242,7 +242,7 @@ export default {
                 this.record.department = res.message.department;
                 this.record.taken_by = res.message.name;
             } else {
-                this.$message.error("找不到已登記的借用人");
+                this.$message.error('找不到已登記的借用人');
             }
         },
         updateItem(item) {
