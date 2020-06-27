@@ -1,6 +1,8 @@
 <template>
     <div id="print-record-container" class="p-12">
-        <h1 id="header" class="text-3xl font-bold mb-4 flex justify-center items-center">表單列印</h1>
+        <h1 id="header" class="text-3xl font-bold mb-4 flex justify-center items-center">
+            表單列印
+        </h1>
         <main class="form-container">
             <FromHead />
             <div class="flex flex-wrap">
