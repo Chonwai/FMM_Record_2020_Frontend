@@ -1,6 +1,6 @@
 <template>
     <div id="print-record-container" class="p-12">
-        <h1 class="text-3xl font-bold mb-4 flex justify-center items-center">表單列印</h1>
+        <h1 id="header" class="text-3xl font-bold mb-4 flex justify-center items-center">表單列印</h1>
         <main class="form-container">
             <FromHead />
             <div class="flex flex-wrap">
@@ -59,8 +59,8 @@
                 </div>
             </div>
             <div class="p-2 bg-black text-white mb-2">
-                <p class="text-2xl">設施管理及維護處職員專用</p>
-                <p class="text-xl">For FMM staff use only</p>
+                <p class="text-2xl flex justify-center">設施管理及維護處職員專用</p>
+                <p class="text-xl flex justify-center">For FMM staff use only</p>
             </div>
             <div class="flex flex-wrap">
                 <FormElement

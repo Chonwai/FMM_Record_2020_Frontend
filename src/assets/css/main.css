@@ -25,6 +25,10 @@
         display: none;
     }
 
+    #header {
+        display: none;
+    }
+
     .form-container {
         height: 100%;
         width: 100%;
