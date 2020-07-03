@@ -7,84 +7,105 @@ Vue.use(VueRouter);
 const routes = [
     {
         path: '/',
-        name: 'Home',
-        component: Home,
+        component: () => import(/* webpackChunkName: "about" */ '../layout/AuthLayout'),
+        children: [
+            {
+                path: '/login',
+                name: 'Login',
+                component: () => import(/* webpackChunkName: "about" */ '../views/Login/LoginMain'),
+            },
+            {
+                path: '/about',
+                name: 'About',
+                component: () => import(/* webpackChunkName: "about" */ '../views/About/AboutMain'),
+            },
+        ],
     },
     {
-        path: '/about',
-        name: 'About',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "about" */ '../views/About/AboutMain'),
-    },
-    {
-        path: '/record',
-        name: 'RecordsList',
-        component: () =>
-            import(/* webpackChunkName: "about" */ '../views/RecordsList/RecordsListMain'),
-    },
-    {
-        path: '/print',
-        name: 'Print',
-        component: () => import(/* webpackChunkName: "about" */ '../views/Print/PrintMain'),
-    },
-    {
-        path: '/print/:id',
-        name: 'PrintPassByID',
-        component: () => import(/* webpackChunkName: "about" */ '../views/Print/PrintMain'),
-    },
-    {
-        path: '/record/new',
-        name: 'NewRecord',
-        component: () => import(/* webpackChunkName: "about" */ '../views/NewRecord/NewRecordMain'),
-    },
-    {
-        path: '/record/:id/update',
-        name: 'UpdateRecord',
-        component: () =>
-            import(/* webpackChunkName: "about" */ '../views/UpdateRecord/UpdateRecordMain'),
-        props: true,
-    },
-    {
-        path: '/assets',
-        name: 'AssetsList',
-        component: () =>
-            import(/* webpackChunkName: "about" */ '../views/AssetsList/AssetsListMain'),
-        props: true,
-    },
-    {
-        path: '/assets/new',
-        name: 'NewAssets',
-        component: () => import(/* webpackChunkName: "about" */ '../views/NewAsset/NewAssetMain'),
-        props: true,
-    },
-    {
-        path: '/assets/:id/update',
-        name: 'UpdateAsset',
-        component: () =>
-            import(/* webpackChunkName: "about" */ '../views/UpdateAsset/UpdateAssetMain'),
-        props: true,
-    },
-    {
-        path: '/tenants/new',
-        name: 'AddNewTenant',
-        component: () => import(/* webpackChunkName: "about" */ '../views/NewTenant/NewTenantMain'),
-        props: true,
-    },
-    {
-        path: '/tenants',
-        name: 'TenantsList',
-        component: () =>
-            import(/* webpackChunkName: "about" */ '../views/TenantsList/TenantsListMain'),
-        props: true,
-    },
-    {
-        path: '/tenants/:id/update',
-        name: 'UpdateTenant',
-        component: () =>
-            import(/* webpackChunkName: "about" */ '../views/UpdateTenant/UpdateTenantMain'),
-        props: true,
+        path: '/',
+        component: () => import(/* webpackChunkName: "about" */ '../layout/SystemLayout'),
+        children: [
+            {
+                path: '/system',
+                name: 'Home',
+                component: Home,
+            },
+            {
+                path: '/record',
+                name: 'RecordsList',
+                component: () =>
+                    import(/* webpackChunkName: "about" */ '../views/RecordsList/RecordsListMain'),
+            },
+            {
+                path: '/print',
+                name: 'Print',
+                component: () => import(/* webpackChunkName: "about" */ '../views/Print/PrintMain'),
+            },
+            {
+                path: '/print/:id',
+                name: 'PrintPassByID',
+                component: () => import(/* webpackChunkName: "about" */ '../views/Print/PrintMain'),
+            },
+            {
+                path: '/record/new',
+                name: 'NewRecord',
+                component: () =>
+                    import(/* webpackChunkName: "about" */ '../views/NewRecord/NewRecordMain'),
+            },
+            {
+                path: '/record/:id/update',
+                name: 'UpdateRecord',
+                component: () =>
+                    import(
+                        /* webpackChunkName: "about" */ '../views/UpdateRecord/UpdateRecordMain'
+                    ),
+                props: true,
+            },
+            {
+                path: '/assets',
+                name: 'AssetsList',
+                component: () =>
+                    import(/* webpackChunkName: "about" */ '../views/AssetsList/AssetsListMain'),
+                props: true,
+            },
+            {
+                path: '/assets/new',
+                name: 'NewAssets',
+                component: () =>
+                    import(/* webpackChunkName: "about" */ '../views/NewAsset/NewAssetMain'),
+                props: true,
+            },
+            {
+                path: '/assets/:id/update',
+                name: 'UpdateAsset',
+                component: () =>
+                    import(/* webpackChunkName: "about" */ '../views/UpdateAsset/UpdateAssetMain'),
+                props: true,
+            },
+            {
+                path: '/tenants/new',
+                name: 'AddNewTenant',
+                component: () =>
+                    import(/* webpackChunkName: "about" */ '../views/NewTenant/NewTenantMain'),
+                props: true,
+            },
+            {
+                path: '/tenants',
+                name: 'TenantsList',
+                component: () =>
+                    import(/* webpackChunkName: "about" */ '../views/TenantsList/TenantsListMain'),
+                props: true,
+            },
+            {
+                path: '/tenants/:id/update',
+                name: 'UpdateTenant',
+                component: () =>
+                    import(
+                        /* webpackChunkName: "about" */ '../views/UpdateTenant/UpdateTenantMain'
+                    ),
+                props: true,
+            },
+        ],
     },
     {
         path: '*',
