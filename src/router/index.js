@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home/HomeMain.vue';
+import GuardUser from '../middleware/GuardUser';
 
 Vue.use(VueRouter);
 
@@ -28,22 +29,34 @@ const routes = [
             {
                 path: '/system',
                 name: 'Home',
+                meta: {
+                    middleware: [GuardUser],
+                },
                 component: Home,
             },
             {
                 path: '/record',
                 name: 'RecordsList',
+                meta: {
+                    middleware: [GuardUser],
+                },
                 component: () =>
                     import(/* webpackChunkName: "about" */ '../views/RecordsList/RecordsListMain'),
             },
             {
                 path: '/print',
                 name: 'Print',
+                meta: {
+                    middleware: [GuardUser],
+                },
                 component: () => import(/* webpackChunkName: "about" */ '../views/Print/PrintMain'),
             },
             {
                 path: '/print/:id',
                 name: 'PrintPassByID',
+                meta: {
+                    middleware: [GuardUser],
+                },
                 component: () => import(/* webpackChunkName: "about" */ '../views/Print/PrintMain'),
             },
             {
