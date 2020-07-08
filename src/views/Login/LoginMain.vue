@@ -25,7 +25,7 @@
                 <InputX
                     class="w-3/4"
                     title="密碼"
-                    type="text"
+                    type="password"
                     placeholder="請輸入密碼"
                     v-model="password"
                 />
@@ -41,6 +41,7 @@
 
 <script>
 import InputX from '../../components/Local/InputX';
+import APIFactory from '../../services/API/APIFactory';
 export default {
     name: 'LoginMain',
     data() {
@@ -53,7 +54,11 @@ export default {
         InputX,
     },
     methods: {
-        login() {},
+        async login() {
+            let AuthAPI = new APIFactory('auth');
+            let res = await AuthAPI.login({ email: this.email, password: this.password });
+            console.log(res);
+        },
     },
 };
 </script>
