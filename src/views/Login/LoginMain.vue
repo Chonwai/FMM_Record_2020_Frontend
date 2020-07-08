@@ -10,10 +10,12 @@
                 srcset=""
             />
             <div class="left w-1/3 h-full bg-teal-400 flex justify-center items-center flex-col">
-                <p class="text-3xl text-white font-semibold">Welcome Back!</p>
+                <p class="text-3xl text-white font-bold">Welcome Back!</p>
             </div>
             <div class="right w-2/3 flex justify-center items-center flex-col">
-                <p class="w-3/4 text-6xl mb-4 flex justify-start items-start">Login,</p>
+                <p class="w-3/4 text-6xl mb-4 flex justify-start items-start font-black">
+                    Login...
+                </p>
                 <div class=""></div>
                 <InputX
                     class="w-3/4"
@@ -42,6 +44,7 @@
 <script>
 import InputX from '../../components/Local/InputX';
 import APIFactory from '../../services/API/APIFactory';
+import LocalStorage from '../../services/Storage/LocalStorageService';
 export default {
     name: 'LoginMain',
     data() {
@@ -57,6 +60,7 @@ export default {
         async login() {
             let AuthAPI = new APIFactory('auth');
             let res = await AuthAPI.login({ email: this.email, password: this.password });
+            LocalStorage.setItem('token', res.message.token.access_token);
             console.log(res);
         },
     },
