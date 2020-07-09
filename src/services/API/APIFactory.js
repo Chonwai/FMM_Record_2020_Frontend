@@ -3,19 +3,17 @@ import AuthAPI from './AuthAPI';
 import RecordAPI from './RecordAPI';
 import TenantAPI from './TenantAPI';
 
-let domain = process.env.VUE_APP_DOMAIN;
-
 class APIFactory {
     constructor(name) {
         switch (name) {
             case 'asset':
-                return new AssetAPI(domain);
+                return new AssetAPI();
             case 'auth':
-                return new AuthAPI(domain);
+                return new AuthAPI();
             case 'record':
-                return new RecordAPI(domain);
+                return new RecordAPI();
             case 'tenant':
-                return new TenantAPI(domain);
+                return new TenantAPI();
             default:
                 break;
         }

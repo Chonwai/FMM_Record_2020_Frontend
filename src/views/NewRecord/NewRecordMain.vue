@@ -255,7 +255,7 @@ export default {
                 type: 'success',
             })
                 .then(() => {
-                    this.$router.push('/');
+                    this.$router.push({ name: 'Home' });
                 })
                 .catch(() => {
                     this.init();

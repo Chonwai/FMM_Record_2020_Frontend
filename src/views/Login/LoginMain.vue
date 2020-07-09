@@ -60,8 +60,14 @@ export default {
         async login() {
             let AuthAPI = new APIFactory('auth');
             let res = await AuthAPI.login({ email: this.email, password: this.password });
-            LocalStorage.setItem('token', res.message.token.access_token);
-            console.log(res);
+            if (res.status === true) {
+                LocalStorage.setItem('token', res.message.token.access_token);
+                LocalStorage.setItem('user_id', res.message.user_details.id);
+                this.$router.push({ name: 'Home' });
+            } else {
+                console.log(res);
+                this.$message.error(res.message);
+            }
         },
     },
 };

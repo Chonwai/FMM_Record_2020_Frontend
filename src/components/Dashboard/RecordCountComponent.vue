@@ -25,12 +25,12 @@
 </template>
 
 <script>
-import RecordAPI from '../../services/API/RecordAPI';
+import APIFactory from '../../services/API/APIFactory';
 export default {
     name: 'RecordCountComponent',
     data() {
         return {
-            API: new RecordAPI(),
+            RecordAPI: new APIFactory('record'),
             allRecords: 0,
             finishedRecords: 0,
             percentage: 0,
@@ -41,9 +41,9 @@ export default {
     },
     methods: {
         async init() {
-            let res = await this.API.getAmountOfRecords('all');
+            let res = await this.RecordAPI.getAmountOfRecords('all');
             this.allRecords = res.message;
-            res = await this.API.getAmountOfRecords('finished');
+            res = await this.RecordAPI.getAmountOfRecords('finished');
             this.finishedRecords = res.message;
             this.percentage = Number(((this.finishedRecords / this.allRecords) * 100).toFixed(2));
         },

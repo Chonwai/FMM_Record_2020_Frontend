@@ -1,12 +1,12 @@
-import axios from 'axios';
+import axios from '../AxiosService';
 
 class AuthAPI {
-    constructor(domain) {
-        this.domain = domain;
+    constructor() {
+        //
     }
     async login(data) {
-        let res = await axios.post(this.domain + `/api/v1/user/login`, data);
-        return res.data;
+        let res = await axios.post('/api/v1/user/login', data);
+        return res;
     }
 }
 
