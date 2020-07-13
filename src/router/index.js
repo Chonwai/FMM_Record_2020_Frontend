@@ -27,6 +27,14 @@ const routes = [
         component: () => import(/* webpackChunkName: "about" */ '../layout/SystemLayout'),
         children: [
             {
+                path: '/logout',
+                name: 'Logout',
+                meta: {
+                    middleware: [GuardUser],
+                },
+                component: Home,
+            },
+            {
                 path: '/system',
                 name: 'Home',
                 meta: {

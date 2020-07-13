@@ -1,7 +1,9 @@
 <template>
-    <div class="login-main-component min-h-screen flex justify-center items-center">
+    <div
+        class="login-main-component flex justify-center items-center bg-center bg-no-repeat bg-cover"
+    >
         <div
-            class="login-card w-2/3 flex justify-center items-center flex-row border border-gray-400 rounded-lg relative"
+            class="login-card w-3/5 flex justify-center items-center flex-row border border-gray-400 bg-white rounded-lg relative"
         >
             <img
                 class="w-24 absolute top-0 left-0 p-3"
@@ -9,8 +11,10 @@
                 alt="icon"
                 srcset=""
             />
-            <div class="left w-1/3 h-full bg-teal-400 flex justify-center items-center flex-col">
-                <p class="text-3xl text-white font-bold">Welcome Back!</p>
+            <div
+                class="left w-1/3 h-full bg-teal-400 flex justify-center items-center flex-col p-4"
+            >
+                <p class="text-3xl text-white font-bold">Welcome Back to FMM System!</p>
             </div>
             <div class="right w-2/3 flex justify-center items-center flex-col">
                 <p class="w-3/4 text-6xl mb-4 flex justify-start items-start font-black">
@@ -65,8 +69,11 @@ export default {
                 LocalStorage.setItem('user_id', res.message.user_details.id);
                 this.$router.push({ name: 'Home' });
             } else {
-                console.log(res);
-                this.$message.error(res.message);
+                if (res.message == 'Password Incorrect') {
+                    this.$message.error(res.message);
+                } else {
+                    this.$message.error(res.message.email[0]);
+                }
             }
         },
     },
@@ -74,6 +81,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.login-main-component {
+    background-image: url('../../assets/images/pexels-photo-745364.jpeg');
+    min-height: calc(100vh - 3rem);
+}
+
 .login-card {
     height: 500px;
 }

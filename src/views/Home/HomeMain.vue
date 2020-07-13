@@ -14,6 +14,14 @@
                     <p class="text-lg font-bold text-center">{{ item.project_title }}</p>
                 </div>
             </router-link>
+            <div class="cards w-1/5 p-8 inline-block cursor-pointer" @click="logout">
+                <div class="card-icon mb-4">
+                    <img :src="require('@/assets/images/logout.svg')" alt="icon" />
+                </div>
+                <div class="card-title">
+                    <p class="text-lg font-bold text-center">登出</p>
+                </div>
+            </div>
         </div>
         <div class="w-2/5 h-full p-8 flex flex-col">
             <RecordCount class="w-full flex-1" />
@@ -26,6 +34,7 @@
 import Utils from '../../utils/Utils';
 import RecordTable from '../../components/Dashboard/RecordTableComponent';
 import RecordCount from '../../components/Dashboard/RecordCountComponent';
+import LocalStorageService from '../../services/Storage/LocalStorageService';
 export default {
     name: 'HomeMain',
     data() {
@@ -39,6 +48,13 @@ export default {
     components: {
         RecordTable,
         RecordCount,
+    },
+    methods: {
+        logout() {
+            LocalStorageService.removeItem('token');
+            LocalStorageService.removeItem('user_id');
+            this.$router.push({ name: 'Login' });
+        },
     },
 };
 </script>

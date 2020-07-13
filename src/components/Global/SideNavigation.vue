@@ -18,18 +18,38 @@
                     {{ item.project_title }}
                 </p>
             </router-link>
+            <div
+                class="nav-item w-full h-10 mb-2 flex flex-row items-center overflow-scroll cursor-pointer"
+                @click="logout"
+            >
+                <img
+                    class="w-1/5 h-auto bg-white rounded-lg p-1"
+                    :src="require('@/assets/images/logout.svg')"
+                />
+                <p class="w-4/5 flex justify-start text-white pl-2 text-sm">
+                    登出
+                </p>
+            </div>
         </div>
     </aside>
 </template>
 
 <script>
 import FunctionList from '@/data/FunctionList.json';
+import LocalStorageService from '../../services/Storage/LocalStorageService';
 export default {
     name: 'SideNavigation',
     data() {
         return {
             functionList: FunctionList.function_list,
         };
+    },
+    methods: {
+        logout() {
+            LocalStorageService.removeItem('token');
+            LocalStorageService.removeItem('user_id');
+            this.$router.push({ name: 'Login' });
+        },
     },
 };
 </script>

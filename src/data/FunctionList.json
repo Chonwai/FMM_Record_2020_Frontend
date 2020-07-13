@@ -38,11 +38,6 @@
       "project_name": "TenantsList",
       "project_title": "查詢或更新借用人資料",
       "icon_name": "relations.svg"
-    },
-    {
-      "project_name": "About",
-      "project_title": "關於",
-      "icon_name": "chat.svg"
     }
   ]
 }
