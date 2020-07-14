@@ -13,13 +13,13 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import './assets/css/my-element-ui.scss';
 import User from './model/User';
+import LocalStorageUtils from './utils/LocalStorageUtils';
+import APIFactory from './services/API/APIFactory';
 
 Vue.config.productionTip = false;
 
 Vue.use(Snotify, options);
 Vue.use(ElementUI);
-
-Vue.prototype.$currentUser = new User();
 
 new Vue({
     router,
@@ -32,3 +32,14 @@ const options = {
         position: SnotifyPosition.rightTop,
     },
 };
+
+init();
+
+async function init() {
+    Vue.prototype.$currentUser = new User();
+    if (LocalStorageUtils.hasToken) {
+        let UserAPI = new APIFactory('user');
+        let res = await UserAPI.getOwner();
+        Vue.prototype.$currentUser.user = res.message[0];
+    }
+}

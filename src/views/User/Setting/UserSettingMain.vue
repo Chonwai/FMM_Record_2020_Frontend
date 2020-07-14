@@ -4,10 +4,10 @@
         <main class="w-2/3 flex flex-wrap border p-4 rounded-lg">
             <InputX
                 class="w-full"
-                title="職員/學生證號碼"
+                title="用戶名稱"
                 type="text"
-                placeholder="請輸入職員/學生證號碼"
-                v-model="user.staff_or_student_number"
+                placeholder="請輸入用戶名稱"
+                v-model="user.name"
             />
             <InputX
                 class="w-full"
@@ -18,10 +18,10 @@
             />
             <InputX
                 class="w-full"
-                title="用戶名稱"
+                title="職員/學生證號碼"
                 type="text"
-                placeholder="請輸入用戶名稱"
-                v-model="user.name"
+                placeholder="請輸入職員/學生證號碼"
+                v-model="user.staff_or_student_number"
             />
             <InputX
                 class="w-full"
@@ -41,7 +41,7 @@
 
 <script>
 import InputX from '../../../components/Local/InputX';
-// import APIFactory from '../../../services/API/APIFactory';
+import APIFactory from '../../../services/API/APIFactory';
 export default {
     name: 'UserSerttingMain',
     data() {
@@ -64,10 +64,12 @@ export default {
     methods: {
         async init() {
             this.user = this.$currentUser.user;
-            console.log(this.$currentUser.user);
-            // let userAPI = new APIFactory('user');
         },
-        async update() {},
+        async update() {
+            let UserAPI = new APIFactory('user');
+            UserAPI.update(this.user);
+            console.log(UserAPI.getOwner());
+        },
     },
 };
 </script>
