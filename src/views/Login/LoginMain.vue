@@ -67,6 +67,7 @@ export default {
             if (res.status === true) {
                 LocalStorage.setItem('token', res.message.token.access_token);
                 LocalStorage.setItem('user_id', res.message.user_details.id);
+                this.setupCurrentUserObject(res.message.user_details);
                 this.$router.push({ name: 'Home' });
             } else {
                 if (res.message == 'Password Incorrect') {
@@ -75,6 +76,9 @@ export default {
                     this.$message.error(res.message.email[0]);
                 }
             }
+        },
+        setupCurrentUserObject(user) {
+            this.$currentUser.user = user;
         },
     },
 };

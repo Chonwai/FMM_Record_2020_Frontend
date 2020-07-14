@@ -45,6 +45,9 @@ export default {
     created() {
         this.functionList = Utils.functionList();
     },
+    mounted() {
+        console.log(this.$currentUser.user);
+    },
     components: {
         RecordTable,
         RecordCount,

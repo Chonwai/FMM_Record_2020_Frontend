@@ -126,6 +126,13 @@ const routes = [
                     ),
                 props: true,
             },
+            {
+                path: '/user/setting',
+                name: 'UserSetting',
+                component: () =>
+                    import(/* webpackChunkName: "about" */ '../views/User/Setting/UserSettingMain'),
+                props: true,
+            },
         ],
     },
     {

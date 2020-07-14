@@ -12,11 +12,14 @@ import Snotify, { SnotifyPosition } from 'vue-snotify';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import './assets/css/my-element-ui.scss';
+import User from './model/User';
 
 Vue.config.productionTip = false;
 
 Vue.use(Snotify, options);
 Vue.use(ElementUI);
+
+Vue.prototype.$currentUser = new User();
 
 new Vue({
     router,

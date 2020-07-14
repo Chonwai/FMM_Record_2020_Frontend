@@ -2,6 +2,7 @@ import AssetAPI from './AssetAPI';
 import AuthAPI from './AuthAPI';
 import RecordAPI from './RecordAPI';
 import TenantAPI from './TenantAPI';
+import UserAPI from './UserAPI';
 
 class APIFactory {
     constructor(name) {
@@ -14,6 +15,8 @@ class APIFactory {
                 return new RecordAPI();
             case 'tenant':
                 return new TenantAPI();
+            case 'user':
+                return new UserAPI();
             default:
                 break;
         }
