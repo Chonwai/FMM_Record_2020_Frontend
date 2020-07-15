@@ -1,7 +1,8 @@
 <template>
     <div id="user-setting-main-container" class="p-12 flex flex-col justify-start items-center">
         <h1 class="text-3xl font-bold mb-4 flex justify-center items-center">用戶設置</h1>
-        <main class="w-2/3 flex flex-wrap border p-4 rounded-lg">
+        <div class="w-2/3 flex flex-wrap border p-4 rounded-lg">
+            <p class="px-8 mb-4 text-xl font-bold">用戶基本資料</p>
             <InputX
                 class="w-full"
                 title="用戶名稱"
@@ -30,12 +31,34 @@
                 placeholder="請輸入電話"
                 v-model="user.contact"
             />
-            <div class="mb-4 px-4 w-full flex justify-end">
+            <div class="px-4 w-full flex justify-end">
                 <button class="input-box py-2 px-4 border rounded-lg" @click="update">
-                    更新資料
+                    更新基本資料
                 </button>
             </div>
-        </main>
+        </div>
+        <div class="w-2/3 mt-4 flex flex-wrap border p-4 rounded-lg">
+            <p class="px-8 mb-4 text-xl font-bold">更改密碼</p>
+            <InputX
+                class="w-full"
+                title="密碼"
+                type="text"
+                placeholder="請輸入密碼"
+                v-model="password"
+            />
+            <InputX
+                class="w-full"
+                title="確認密碼"
+                type="text"
+                placeholder="請再輸入密碼"
+                v-model="confirmPassword"
+            />
+            <div class="px-4 w-full flex justify-end">
+                <button class="input-box py-2 px-4 border rounded-lg" @click="updatePassword">
+                    更新用戶密碼
+                </button>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -52,6 +75,8 @@ export default {
                 name: '',
                 contact: '',
             },
+            password: '',
+            confirmPassword: '',
         };
     },
     created() {},
@@ -68,7 +93,6 @@ export default {
         async update() {
             let UserAPI = new APIFactory('user');
             UserAPI.update(this.user);
-            console.log(UserAPI.getOwner());
         },
     },
 };

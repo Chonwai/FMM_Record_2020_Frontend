@@ -1,6 +1,6 @@
 <template>
     <div class="inputx-component flex flex-row justify-center items-center px-4 mb-4">
-        <p class="w-1/4 p-2 flex justify-start mr-4">{{ title }}</p>
+        <p class="w-1/4 p-2 flex mr-4">{{ title }}</p>
         <div v-if="search" class="w-3/4 flex flex-row">
             <input
                 :type="type"
