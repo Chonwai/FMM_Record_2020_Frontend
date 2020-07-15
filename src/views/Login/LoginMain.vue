@@ -2,9 +2,7 @@
     <div
         class="login-main-component flex justify-center items-center bg-center bg-no-repeat bg-cover"
     >
-        <div
-            class="login-card w-3/5 flex justify-center items-center flex-row border border-gray-400 bg-white rounded-lg relative"
-        >
+        <div class="login-card w-3/5 flex justify-center items-center flex-row relative">
             <img
                 class="w-24 absolute top-0 left-0 p-3"
                 src="@/assets/images/strategy.svg"
@@ -12,11 +10,13 @@
                 srcset=""
             />
             <div
-                class="left w-1/3 h-full bg-teal-400 flex justify-center items-center flex-col p-4"
+                class="left w-1/3 h-full bg-teal-400 flex justify-center items-center flex-col p-4 border-l border-t border-b rounded-l-md"
             >
                 <p class="text-3xl text-white font-bold">Welcome Back to FMM System!</p>
             </div>
-            <div class="right w-2/3 flex justify-center items-center flex-col">
+            <div
+                class="right w-2/3 h-full bg-white flex justify-center items-center flex-col border-r border-t border-b rounded-r-md"
+            >
                 <p class="w-3/4 text-6xl mb-4 flex justify-start items-start font-black">
                     Login...
                 </p>
