@@ -1,8 +1,8 @@
 <template>
     <div id="developing-view" class="w-full h-screen flex justify-center items-center">
-        <p class="font-bold text-2xl">
-            <span class="font-bold text-6xl">Oops... :(</span><br />This function is on development.
-            Coming soon!
+        <p class="font-bold text-2xl flex-col flex justify-center items-center">
+            <span class="font-bold text-6xl">Oops... :(</span>
+            404 Not Found
         </p>
     </div>
 </template>

@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home/HomeMain.vue';
 import GuardUser from '../middleware/GuardUser';
+import LocalStorageUtils from '../utils/LocalStorageUtils';
 
 Vue.use(VueRouter);
 
@@ -25,21 +26,22 @@ const routes = [
     {
         path: '/',
         component: () => import(/* webpackChunkName: "about" */ '../layout/SystemLayout'),
+        beforeEnter: (to, from, next) => {
+            if (LocalStorageUtils.hasToken() && LocalStorageUtils.hasUserID()) {
+                next(true);
+            } else {
+                next('/login');
+            }
+        },
         children: [
             {
                 path: '/logout',
                 name: 'Logout',
-                meta: {
-                    middleware: [GuardUser],
-                },
                 component: Home,
             },
             {
                 path: '/system',
                 name: 'Home',
-                meta: {
-                    middleware: [GuardUser],
-                },
                 component: Home,
             },
             {
@@ -54,17 +56,11 @@ const routes = [
             {
                 path: '/print',
                 name: 'Print',
-                meta: {
-                    middleware: [GuardUser],
-                },
                 component: () => import(/* webpackChunkName: "about" */ '../views/Print/PrintMain'),
             },
             {
                 path: '/print/:id',
                 name: 'PrintPassByID',
-                meta: {
-                    middleware: [GuardUser],
-                },
                 component: () => import(/* webpackChunkName: "about" */ '../views/Print/PrintMain'),
             },
             {
@@ -134,6 +130,10 @@ const routes = [
                 props: true,
             },
         ],
+    },
+    {
+        path: '/',
+        name: 'Logout',
     },
     {
         path: '*',
