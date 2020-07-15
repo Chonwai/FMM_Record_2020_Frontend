@@ -38,19 +38,26 @@
             </div>
         </div>
         <div class="w-2/3 mt-4 flex flex-wrap border p-4 rounded-lg">
-            <p class="px-8 mb-4 text-xl font-bold">更改密碼</p>
+            <p class="px-8 mb-4 text-xl font-bold">變更密碼</p>
             <InputX
                 class="w-full"
-                title="密碼"
+                title="目前的密碼"
+                type="text"
+                placeholder="請輸入目前的密碼"
+                v-model="password"
+            />
+            <InputX
+                class="w-full"
+                title="新密碼"
                 type="text"
                 placeholder="請輸入密碼"
                 v-model="password"
             />
             <InputX
                 class="w-full"
-                title="確認密碼"
+                title="再次輸入新密碼"
                 type="text"
-                placeholder="請再輸入密碼"
+                placeholder="請再次輸入新密碼"
                 v-model="confirmPassword"
             />
             <div class="px-4 w-full flex justify-end">
@@ -94,12 +101,13 @@ export default {
             let UserAPI = new APIFactory('user');
             UserAPI.update(this.user);
         },
+        async updatePassword() {},
     },
 };
 </script>
 
 <style lang="scss" scoped>
 #user-setting-main-container {
-    height: calc(100vh - 3rem);
+    min-height: calc(100vh - 3rem);
 }
 </style>
