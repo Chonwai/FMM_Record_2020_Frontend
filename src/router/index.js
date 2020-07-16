@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home/HomeMain.vue';
-import GuardUser from '../middleware/GuardUser';
+// import GuardUser from '../middleware/GuardUser';
 import LocalStorageUtils from '../utils/LocalStorageUtils';
 
 Vue.use(VueRouter);
@@ -10,6 +10,13 @@ const routes = [
     {
         path: '/',
         component: () => import(/* webpackChunkName: "about" */ '../layout/AuthLayout'),
+        beforeEnter: (to, from, next) => {
+            if (LocalStorageUtils.hasToken() && LocalStorageUtils.hasUserID()) {
+                next('/system');
+            } else {
+                next();
+            }
+        },
         children: [
             {
                 path: '/login',
@@ -22,13 +29,14 @@ const routes = [
                 component: () => import(/* webpackChunkName: "about" */ '../views/About/AboutMain'),
             },
         ],
+        redirect: { name: 'Login' },
     },
     {
         path: '/',
         component: () => import(/* webpackChunkName: "about" */ '../layout/SystemLayout'),
         beforeEnter: (to, from, next) => {
             if (LocalStorageUtils.hasToken() && LocalStorageUtils.hasUserID()) {
-                next(true);
+                next();
             } else {
                 next('/login');
             }
@@ -47,9 +55,6 @@ const routes = [
             {
                 path: '/record',
                 name: 'RecordsList',
-                meta: {
-                    middleware: [GuardUser],
-                },
                 component: () =>
                     import(/* webpackChunkName: "about" */ '../views/RecordsList/RecordsListMain'),
             },
@@ -130,10 +135,7 @@ const routes = [
                 props: true,
             },
         ],
-    },
-    {
-        path: '/',
-        name: 'Logout',
+        redirect: { name: 'Login' },
     },
     {
         path: '*',
@@ -143,7 +145,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
-    // mode: 'history',
+    mode: 'history',
     // base: process.env.BASE_URL,
     routes,
 });
