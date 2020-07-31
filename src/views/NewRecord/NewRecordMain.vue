@@ -65,7 +65,18 @@
                 type="text"
                 placeholder="請輸入電話"
                 v-model="record.contact"
-            />
+                :search="true"
+            >
+                <template v-slot:search-button>
+                    <el-button
+                        class="ml-2"
+                        type="primary"
+                        icon="el-icon-search"
+                        @click="searchByContact"
+                        >搜尋借用人</el-button
+                    >
+                </template>
+            </InputX>
             <InputX
                 class="w-full"
                 title="備註"
@@ -236,6 +247,17 @@ export default {
         },
         async searchByStaffNumber() {
             let filter = { staff_number: this.record.staff_number };
+            const res = await this.TenantAPI.getSpecifyTenantBySearchFilter(filter);
+            if (res.status == true) {
+                this.record.contact = res.message.contact;
+                this.record.department = res.message.department;
+                this.record.taken_by = res.message.name;
+            } else {
+                this.$message.error('找不到已登記的借用人');
+            }
+        },
+        async searchByContact() {
+            let filter = { contact: this.record.contact };
             const res = await this.TenantAPI.getSpecifyTenantBySearchFilter(filter);
             if (res.status == true) {
                 this.record.contact = res.message.contact;
