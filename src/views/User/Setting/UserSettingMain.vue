@@ -37,7 +37,7 @@
                 </button>
             </div>
         </div>
-        <div class="w-2/3 mt-4 flex flex-wrap border p-4 rounded-lg">
+        <!-- <div class="w-2/3 mt-4 flex flex-wrap border p-4 rounded-lg">
             <p class="px-8 mb-4 text-xl font-bold">變更密碼</p>
             <InputX
                 class="w-full"
@@ -65,7 +65,7 @@
                     更新用戶密碼
                 </button>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 
