@@ -16,16 +16,8 @@ import User from './model/User';
 import LocalStorageUtils from './utils/LocalStorageUtils';
 import APIFactory from './services/API/APIFactory';
 
-Vue.config.productionTip = false;
-
 Vue.use(Snotify, options);
 Vue.use(ElementUI);
-
-new Vue({
-    router,
-    store,
-    render: h => h(App),
-}).$mount('#app');
 
 const options = {
     toast: {
@@ -34,16 +26,22 @@ const options = {
 };
 
 async function init() {
-    Vue.prototype.$currentUser = await new User();
+    Vue.prototype.$currentUser = new User();
     if (LocalStorageUtils.hasToken() && LocalStorageUtils.hasUserID()) {
-        let UserAPI = await new APIFactory('user');
+        let UserAPI = new APIFactory('user');
         let res = await UserAPI.getOwner();
-        Vue.prototype.$currentUser.user = await res.message[0];
+        Vue.prototype.$currentUser.user = res.message[0];
     }
 }
 
 async function main() {
     await init();
+    Vue.config.productionTip = false;
+    new Vue({
+        router,
+        store,
+        render: h => h(App),
+    }).$mount('#app');
 }
 
 main();
