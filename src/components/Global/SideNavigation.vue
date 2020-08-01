@@ -48,7 +48,7 @@ export default {
     computed: {
         getUsername() {
             return this.$currentUser.name;
-        }
+        },
     },
     methods: {
         logout() {
