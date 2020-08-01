@@ -40,14 +40,18 @@ import FunctionList from '@/data/FunctionList.json';
 import LocalStorageService from '../../services/Storage/LocalStorageService';
 export default {
     name: 'SideNavigation',
+    async created() {
+        this.username = await this.$currentUser.name;
+    },
     data() {
         return {
             functionList: FunctionList.function_list,
+            username: '',
         };
     },
     computed: {
         getUsername() {
-            return this.$currentUser.name;
+            return this.username;
         },
     },
     methods: {

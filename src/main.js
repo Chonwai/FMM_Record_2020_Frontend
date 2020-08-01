@@ -34,7 +34,7 @@ const options = {
 };
 
 async function init() {
-    Vue.prototype.$currentUser = new User();
+    Vue.prototype.$currentUser = await new User();
     if (LocalStorageUtils.hasToken() && LocalStorageUtils.hasUserID()) {
         let UserAPI = await new APIFactory('user');
         let res = await UserAPI.getOwner();

@@ -7,16 +7,16 @@ class User {
     get user() {
         return this.currentUser;
     }
-    set user(user) {
-        this.currentUser = user;
+    set user(newUser) {
+        this.currentUser = newUser;
     }
 
     // User Name Getter and Setter
     get name() {
         return this.currentUser.name;
     }
-    set name(name) {
-        this.currentUser.name = name;
+    set name(newName) {
+        this.currentUser.name = newName;
     }
 }
 
