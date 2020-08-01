@@ -33,13 +33,17 @@ const options = {
     },
 };
 
-init();
-
 async function init() {
     Vue.prototype.$currentUser = new User();
-    if (LocalStorageUtils.hasToken()) {
-        let UserAPI = new APIFactory('user');
+    if (LocalStorageUtils.hasToken() && LocalStorageUtils.hasUserID()) {
+        let UserAPI = await new APIFactory('user');
         let res = await UserAPI.getOwner();
-        Vue.prototype.$currentUser.user = res.message[0];
+        Vue.prototype.$currentUser.user = await res.message[0];
     }
 }
+
+async function main() {
+    await init();
+}
+
+main();

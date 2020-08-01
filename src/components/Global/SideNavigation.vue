@@ -2,7 +2,7 @@
     <aside id="side-navigation-component" class="h-screen w-64 bg-teal-800 fixed p-8">
         <div class="my-4 flex flex-col justify-center items-center">
             <img class="px-2 w-3/5" src="@/assets/images/strategy.svg" alt="icon" srcset />
-            <p class="text-white font-bold text-xl">Hi, {{ this.$currentUser.name }}</p>
+            <p class="text-white font-bold text-xl">Hi, {{ getUsername }}</p>
         </div>
         <div class="flex flex-col justify-center items-start w-full overflow-scroll">
             <router-link
@@ -44,6 +44,11 @@ export default {
         return {
             functionList: FunctionList.function_list,
         };
+    },
+    computed: {
+        getUsername() {
+            return this.$currentUser.name;
+        }
     },
     methods: {
         logout() {
