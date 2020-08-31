@@ -260,7 +260,7 @@ export default {
             let filter = { contact: this.record.contact };
             const res = await this.TenantAPI.getSpecifyTenantBySearchFilter(filter);
             if (res.status == true) {
-                this.record.contact = res.message.contact;
+                this.record.staff_number = res.message.staff_number;
                 this.record.department = res.message.department;
                 this.record.taken_by = res.message.name;
             } else {
