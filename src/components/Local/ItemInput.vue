@@ -52,18 +52,12 @@
 
 <script>
 import InputX from './InputX';
+import AssetAPI from '../../services/API/AssetAPI';
 export default {
     name: 'ItemInputComponent',
     data() {
         return {
-            item: {
-                item: this.index,
-                assets_model: '',
-                assets_no: '',
-                place_of_use: '',
-                returned_by: '',
-                returned_at: '',
-            },
+            AssetAPI: new AssetAPI(),
         };
     },
     props: {
@@ -98,8 +92,13 @@ export default {
         InputX,
     },
     methods: {
-        searchByAssetsNo() {
-            console.log('Hi');
+        async searchByAssetsNo() {
+            const res = await this.AssetAPI.getSpecifyAssetByAssetID(this.value.assets_no);
+            if (res.status == true) {
+                this.value.assets_model = res.message[0].name;
+            } else {
+                this.$message.error('找不到已登記的設備');
+            }
         },
     },
 };
