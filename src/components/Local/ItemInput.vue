@@ -14,7 +14,18 @@
             type="text"
             placeholder="請輸入器材財產編號"
             v-model="value.assets_no"
-        />
+            :search="true"
+        >
+            <template v-slot:search-button>
+                <el-button
+                    class="ml-2"
+                    type="primary"
+                    icon="el-icon-search"
+                    @click="searchByAssetsNo"
+                    >搜尋器材</el-button
+                >
+            </template>
+        </InputX>
         <InputX
             class="w-full"
             title="用途及使用地點"
@@ -85,6 +96,11 @@ export default {
     },
     components: {
         InputX,
+    },
+    methods: {
+        searchByAssetsNo() {
+            console.log('Hi');
+        },
     },
 };
 </script>

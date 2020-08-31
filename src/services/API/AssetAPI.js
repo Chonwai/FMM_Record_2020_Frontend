@@ -14,6 +14,11 @@ class AssetAPI {
         return res;
     }
 
+    async getSpecifyAssetByAssetID(data) {
+        let res = await axios.get(`/api/v1/assets/code/${data}`);
+        return res;
+    }
+
     async insertAsset(data) {
         let res = await axios.post(`/api/v1/assets`, data);
         return res;
